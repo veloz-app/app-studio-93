@@ -72,14 +72,17 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const NavBarPage() : const IntroWidget(),
+      errorBuilder: (context, state) => RootPageContext.wrap(
+        appStateNotifier.loggedIn ? const NavBarPage() : const IntroWidget(),
+        errorRoute: state.location,
+      ),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) =>
-              appStateNotifier.loggedIn ? const NavBarPage() : const IntroWidget(),
+          builder: (context, _) => RootPageContext.wrap(
+            appStateNotifier.loggedIn ? const NavBarPage() : const IntroWidget(),
+          ),
         ),
         FFRoute(
           name: 'Intro',
@@ -128,6 +131,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => params.isEmpty
               ? const NavBarPage(initialPage: 'Servicos')
               : const ServicosWidget(),
+        ),
+        FFRoute(
+          name: 'Contato',
+          path: '/contato',
+          builder: (context, params) => const ContatoWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

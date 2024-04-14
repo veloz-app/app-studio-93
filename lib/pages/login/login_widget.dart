@@ -503,7 +503,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Column(
-                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisSize: MainAxisSize.min,
                                               mainAxisAlignment:
                                                   MainAxisAlignment.center,
                                               children: [

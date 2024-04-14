@@ -76,15 +76,14 @@ class _AssinaturaIntroWidgetState extends State<AssinaturaIntroWidget>
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: Container(
-          width: 1484.0,
+          width: 1928.0,
           height: 1404.0,
           decoration: BoxDecoration(
-            color: FlutterFlowTheme.of(context).secondaryBackground,
-            image: DecorationImage(
-              fit: BoxFit.fill,
-              image: Image.asset(
-                'assets/images/Fundo_390x844.png',
-              ).image,
+            gradient: LinearGradient(
+              colors: [FlutterFlowTheme.of(context).primaryText, Colors.black],
+              stops: const [0.0, 1.0],
+              begin: const AlignmentDirectional(0.0, -1.0),
+              end: const AlignmentDirectional(0, 1.0),
             ),
           ),
           child: Column(

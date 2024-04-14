@@ -42,6 +42,9 @@ class _IntroWidgetState extends State<IntroWidget>
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      if (RootPageContext.isInactiveRootPage(context)) {
+        return;
+      }
       await Future.delayed(const Duration(milliseconds: 3200));
 
       context.goNamed(
@@ -68,40 +71,34 @@ class _IntroWidgetState extends State<IntroWidget>
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
-      child: Scaffold(
-        key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        body: Container(
-          width: 1086.0,
-          height: 1414.0,
-          decoration: BoxDecoration(
-            color: FlutterFlowTheme.of(context).secondaryBackground,
-            image: DecorationImage(
-              fit: BoxFit.fitWidth,
-              image: Image.asset(
-                'assets/images/Fundo_390x844.png',
-              ).image,
-            ),
+    return Scaffold(
+      key: scaffoldKey,
+      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+      body: Container(
+        width: 1966.0,
+        height: 1414.0,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [FlutterFlowTheme.of(context).primaryText, Colors.black],
+            stops: const [0.0, 1.0],
+            begin: const AlignmentDirectional(0.0, -1.0),
+            end: const AlignmentDirectional(0, 1.0),
           ),
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(8.0),
-                child: Image.asset(
-                  'assets/images/Prancheta_1.png',
-                  width: 206.0,
-                  height: 200.0,
-                  fit: BoxFit.cover,
-                ),
-              ).animateOnPageLoad(animationsMap['imageOnPageLoadAnimation']!),
-            ],
-          ),
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(8.0),
+              child: Image.asset(
+                'assets/images/Logotipo.png',
+                width: 206.0,
+                height: 200.0,
+                fit: BoxFit.cover,
+              ),
+            ).animateOnPageLoad(animationsMap['imageOnPageLoadAnimation']!),
+          ],
         ),
       ),
     );

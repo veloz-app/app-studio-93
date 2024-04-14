@@ -9,3 +9,4 @@ export '/pages/login/login_widget.dart' show LoginWidget;
 export '/pages/configuracao/configuracao_widget.dart' show ConfiguracaoWidget;
 export '/pages/editar/editar_widget.dart' show EditarWidget;
 export '/pages/servicos/servicos_widget.dart' show ServicosWidget;
+export '/pages/contato/contato_widget.dart' show ContatoWidget;

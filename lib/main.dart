@@ -127,65 +127,73 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = {
-      'Pagina-inicial': const PaginaInicialWidget(),
       'Servicos': const ServicosWidget(),
       'Configuracao': const ConfiguracaoWidget(),
       'Editar': const EditarWidget(),
+      'Pagina-inicial': const PaginaInicialWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
     return Scaffold(
       body: _currentPage ?? tabs[_currentPageName],
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: currentIndex,
-        onTap: (i) => setState(() {
-          _currentPage = null;
-          _currentPageName = tabs.keys.toList()[i];
-        }),
-        backgroundColor: Colors.black,
-        selectedItemColor: const Color(0xFFAB8346),
-        unselectedItemColor: FlutterFlowTheme.of(context).secondaryText,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        type: BottomNavigationBarType.fixed,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home_outlined,
-              size: 24.0,
+      bottomNavigationBar: Visibility(
+        visible: responsiveVisibility(
+          context: context,
+          tablet: false,
+          tabletLandscape: false,
+          desktop: false,
+        ),
+        child: BottomNavigationBar(
+          currentIndex: currentIndex,
+          onTap: (i) => setState(() {
+            _currentPage = null;
+            _currentPageName = tabs.keys.toList()[i];
+          }),
+          backgroundColor: Colors.black,
+          selectedItemColor: const Color(0xFFAB8346),
+          unselectedItemColor: FlutterFlowTheme.of(context).secondaryText,
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          type: BottomNavigationBarType.fixed,
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.content_cut,
+                size: 24.0,
+              ),
+              label: 'Return',
+              tooltip: '',
             ),
-            activeIcon: Icon(
-              Icons.home,
-              size: 24.0,
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.settings_sharp,
+                size: 24.0,
+              ),
+              label: 'Configuração',
+              tooltip: '',
             ),
-            label: 'Home',
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.content_cut,
-              size: 24.0,
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.person,
+                size: 24.0,
+              ),
+              label: 'Home',
+              tooltip: '',
             ),
-            label: 'Return',
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.settings_sharp,
-              size: 24.0,
-            ),
-            label: 'Configuração',
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.person,
-              size: 24.0,
-            ),
-            label: 'Home',
-            tooltip: '',
-          )
-        ],
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.home_outlined,
+                size: 24.0,
+              ),
+              activeIcon: Icon(
+                Icons.home,
+                size: 24.0,
+              ),
+              label: 'Home',
+              tooltip: '',
+            )
+          ],
+        ),
       ),
     );
   }

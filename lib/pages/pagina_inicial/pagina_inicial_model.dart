@@ -8,13 +8,21 @@ class PaginaInicialModel extends FlutterFlowModel<PaginaInicialWidget> {
 
   final unfocusNode = FocusNode();
   InstantTimer? instantTimer;
-  // State field(s) for PageView widget.
-  PageController? pageViewController;
+  // State field(s) for PageView-Mobile widget.
+  PageController? pageViewMobileController;
 
-  int get pageViewCurrentIndex => pageViewController != null &&
-          pageViewController!.hasClients &&
-          pageViewController!.page != null
-      ? pageViewController!.page!.round()
+  int get pageViewMobileCurrentIndex => pageViewMobileController != null &&
+          pageViewMobileController!.hasClients &&
+          pageViewMobileController!.page != null
+      ? pageViewMobileController!.page!.round()
+      : 0;
+  // State field(s) for PageView-web widget.
+  PageController? pageViewWebController;
+
+  int get pageViewWebCurrentIndex => pageViewWebController != null &&
+          pageViewWebController!.hasClients &&
+          pageViewWebController!.page != null
+      ? pageViewWebController!.page!.round()
       : 0;
 
   @override

@@ -42,7 +42,7 @@ class _ConfiguracaoWidgetState extends State<ConfiguracaoWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: Container(
-          width: 1534.0,
+          width: 1926.0,
           height: 1335.0,
           decoration: BoxDecoration(
             gradient: LinearGradient(
