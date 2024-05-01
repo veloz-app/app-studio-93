@@ -7,7 +7,7 @@ class PaginaInicialModel extends FlutterFlowModel<PaginaInicialWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  InstantTimer? instantTimer;
+  InstantTimer? Tempo;
   // State field(s) for PageView-Mobile widget.
   PageController? pageViewMobileController;
 
@@ -15,6 +15,14 @@ class PaginaInicialModel extends FlutterFlowModel<PaginaInicialWidget> {
           pageViewMobileController!.hasClients &&
           pageViewMobileController!.page != null
       ? pageViewMobileController!.page!.round()
+      : 0;
+  // State field(s) for PageView-tablet widget.
+  PageController? pageViewTabletController;
+
+  int get pageViewTabletCurrentIndex => pageViewTabletController != null &&
+          pageViewTabletController!.hasClients &&
+          pageViewTabletController!.page != null
+      ? pageViewTabletController!.page!.round()
       : 0;
   // State field(s) for PageView-web widget.
   PageController? pageViewWebController;
@@ -31,6 +39,6 @@ class PaginaInicialModel extends FlutterFlowModel<PaginaInicialWidget> {
   @override
   void dispose() {
     unfocusNode.dispose();
-    instantTimer?.cancel();
+    Tempo?.cancel();
   }
 }

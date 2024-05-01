@@ -20,20 +20,7 @@ class _IntroWidgetState extends State<IntroWidget>
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
-  final animationsMap = {
-    'imageOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 630.ms,
-          duration: 520.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-  };
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -46,17 +33,26 @@ class _IntroWidgetState extends State<IntroWidget>
         return;
       }
       await Future.delayed(const Duration(milliseconds: 3200));
+      if (MediaQuery.sizeOf(context).width <= 391.0 ? true : true) {
+        context.pushNamed('Pagina-inicial');
+      } else {
+        context.pushNamed('Login');
+      }
+    });
 
-      context.goNamed(
-        'Login',
-        extra: <String, dynamic>{
-          kTransitionInfoKey: const TransitionInfo(
-            hasTransition: true,
-            transitionType: PageTransitionType.rightToLeft,
-            duration: Duration(milliseconds: 600),
+    animationsMap.addAll({
+      'imageOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 630.0.ms,
+            duration: 520.0.ms,
+            begin: 0.0,
+            end: 1.0,
           ),
-        },
-      );
+        ],
+      ),
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
