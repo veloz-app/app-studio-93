@@ -44,9 +44,7 @@ class _PaginaInicialWidgetState extends State<PaginaInicialWidget>
           await Future.wait([
             Future(() async {
               if (FFAppState().PageViewAtual >= FFAppState().PageViewTotal) {
-                FFAppState().update(() {
-                  FFAppState().PageViewAtual = 1;
-                });
+                FFAppState().PageViewAtual = 1;
                 await _model.pageViewMobileController?.animateToPage(
                   0,
                   duration: const Duration(milliseconds: 500),
@@ -58,39 +56,14 @@ class _PaginaInicialWidgetState extends State<PaginaInicialWidget>
                   duration: const Duration(milliseconds: 300),
                   curve: Curves.ease,
                 );
-                FFAppState().update(() {
-                  FFAppState().PageViewAtual = FFAppState().PageViewAtual + 1;
-                });
+                FFAppState().PageViewAtual = FFAppState().PageViewAtual + 1;
                 return;
               }
             }),
+            Future(() async {}),
             Future(() async {
               if (FFAppState().PageViewAtual >= FFAppState().PageViewTotal) {
-                FFAppState().update(() {
-                  FFAppState().PageViewAtual = 1;
-                });
-                await _model.pageViewTabletController?.animateToPage(
-                  0,
-                  duration: const Duration(milliseconds: 500),
-                  curve: Curves.ease,
-                );
-                return;
-              } else {
-                await _model.pageViewTabletController?.nextPage(
-                  duration: const Duration(milliseconds: 300),
-                  curve: Curves.ease,
-                );
-                FFAppState().update(() {
-                  FFAppState().PageViewAtual = FFAppState().PageViewAtual + 1;
-                });
-                return;
-              }
-            }),
-            Future(() async {
-              if (FFAppState().PageViewAtual >= FFAppState().PageViewTotal) {
-                FFAppState().update(() {
-                  FFAppState().PageViewAtual = 1;
-                });
+                FFAppState().PageViewAtual = 1;
                 await _model.pageViewWebController?.animateToPage(
                   0,
                   duration: const Duration(milliseconds: 500),
@@ -102,9 +75,7 @@ class _PaginaInicialWidgetState extends State<PaginaInicialWidget>
                   duration: const Duration(milliseconds: 300),
                   curve: Curves.ease,
                 );
-                FFAppState().update(() {
-                  FFAppState().PageViewAtual = FFAppState().PageViewAtual + 1;
-                });
+                FFAppState().PageViewAtual = FFAppState().PageViewAtual + 1;
                 return;
               }
             }),
@@ -291,8 +262,6 @@ class _PaginaInicialWidgetState extends State<PaginaInicialWidget>
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: Container(
-          width: 2033.0,
-          height: 1401.0,
           decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [FlutterFlowTheme.of(context).primaryText, Colors.black],
@@ -692,7 +661,7 @@ class _PaginaInicialWidgetState extends State<PaginaInicialWidget>
                               'assets/images/Prancheta_4.png',
                               width: 300.0,
                               height: 770.0,
-                              fit: BoxFit.fitWidth,
+                              fit: BoxFit.cover,
                             ),
                           ),
                           ClipRRect(
@@ -777,7 +746,7 @@ class _PaginaInicialWidgetState extends State<PaginaInicialWidget>
                                   'assets/images/Banner_Curso_Tablet.png',
                                   width: 300.0,
                                   height: 942.0,
-                                  fit: BoxFit.fitWidth,
+                                  fit: BoxFit.cover,
                                 ),
                               ),
                             ),
@@ -861,7 +830,7 @@ class _PaginaInicialWidgetState extends State<PaginaInicialWidget>
                                 'assets/images/Banner_curso_Web.png',
                                 width: 300.0,
                                 height: 942.0,
-                                fit: BoxFit.fitWidth,
+                                fit: BoxFit.cover,
                               ),
                             ),
                             ClipRRect(
