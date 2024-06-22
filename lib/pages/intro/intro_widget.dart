@@ -32,11 +32,11 @@ class _IntroWidgetState extends State<IntroWidget>
       if (RootPageContext.isInactiveRootPage(context)) {
         return;
       }
-      await Future.delayed(const Duration(milliseconds: 3200));
+      await Future.delayed(const Duration(milliseconds: 1500));
       if (MediaQuery.sizeOf(context).width <= 391.0 ? true : true) {
-        context.pushNamed('Pagina-inicial');
-      } else {
         context.pushNamed('Login');
+      } else {
+        context.pushNamed('Pagina-inicial');
       }
     });
 
@@ -87,8 +87,8 @@ class _IntroWidgetState extends State<IntroWidget>
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(8.0),
-              child: Image.asset(
-                'assets/images/Logotipo.png',
+              child: Image.network(
+                'https://firebasestorage.googleapis.com/v0/b/studio-93-795ad.appspot.com/o/Arquivos%20apps%2FImagens%2FLogotipo.png?alt=media&token=0d3ff9e0-2b92-4e61-9ab5-1b24a01c6c4e',
                 width: 206.0,
                 height: 200.0,
                 fit: BoxFit.cover,

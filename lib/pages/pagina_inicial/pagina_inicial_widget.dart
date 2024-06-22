@@ -35,9 +35,8 @@ class _PaginaInicialWidgetState extends State<PaginaInicialWidget>
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      FFAppState().update(() {
-        FFAppState().PageViewAtual = 1;
-      });
+      FFAppState().PageViewAtual = 1;
+      FFAppState().update(() {});
       _model.Tempo = InstantTimer.periodic(
         duration: const Duration(milliseconds: 4000),
         callback: (timer) async {
@@ -60,7 +59,6 @@ class _PaginaInicialWidgetState extends State<PaginaInicialWidget>
                 return;
               }
             }),
-            Future(() async {}),
             Future(() async {
               if (FFAppState().PageViewAtual >= FFAppState().PageViewTotal) {
                 FFAppState().PageViewAtual = 1;
@@ -657,8 +655,8 @@ class _PaginaInicialWidgetState extends State<PaginaInicialWidget>
                         children: [
                           ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
-                            child: Image.asset(
-                              'assets/images/Prancheta_4.png',
+                            child: Image.network(
+                              'https://firebasestorage.googleapis.com/v0/b/studio-93-795ad.appspot.com/o/Arquivos%20apps%2FBanners%2FBanner%20Mobile%2FBanner%20Curso%20Mobile.png?alt=media&token=c8b77d98-c43c-4aca-a3c8-7b94acfe135a',
                               width: 300.0,
                               height: 770.0,
                               fit: BoxFit.cover,
@@ -666,8 +664,8 @@ class _PaginaInicialWidgetState extends State<PaginaInicialWidget>
                           ),
                           ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
-                            child: Image.asset(
-                              'assets/images/Prancheta_5.png',
+                            child: Image.network(
+                              'https://firebasestorage.googleapis.com/v0/b/studio-93-795ad.appspot.com/o/Arquivos%20apps%2FBanners%2FBanner%20Mobile%2FBanner%20Midias%20sociais%20Mobile.png?alt=media&token=7441f5b6-4326-4c46-908e-d499c5e07cec',
                               width: 300.0,
                               height: 200.0,
                               fit: BoxFit.cover,
@@ -675,8 +673,8 @@ class _PaginaInicialWidgetState extends State<PaginaInicialWidget>
                           ),
                           ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
-                            child: Image.asset(
-                              'assets/images/Prancheta_2.png',
+                            child: Image.network(
+                              'https://firebasestorage.googleapis.com/v0/b/studio-93-795ad.appspot.com/o/Arquivos%20apps%2FBanners%2FBanner%20Mobile%2FBanner%20Assinatura%20Mobile.png?alt=media&token=13ff0f7e-8e7a-452b-a32e-0362ba13ea85',
                               width: 300.0,
                               height: 174.0,
                               fit: BoxFit.cover,
@@ -701,6 +699,7 @@ class _PaginaInicialWidgetState extends State<PaginaInicialWidget>
                                 duration: const Duration(milliseconds: 500),
                                 curve: Curves.ease,
                               );
+                              setState(() {});
                             },
                             effect: smooth_page_indicator.ExpandingDotsEffect(
                               expansionFactor: 3.0,
@@ -742,8 +741,8 @@ class _PaginaInicialWidgetState extends State<PaginaInicialWidget>
                               ),
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(8.0),
-                                child: Image.asset(
-                                  'assets/images/Banner_Curso_Tablet.png',
+                                child: Image.network(
+                                  'https://firebasestorage.googleapis.com/v0/b/studio-93-795ad.appspot.com/o/Arquivos%20apps%2FBanners%2FBanner%20Tablet%2FBanner%20Curso%20Tablet.png?alt=media&token=09999ba6-a7c5-4ea8-a0fa-d4269b8aade7',
                                   width: 300.0,
                                   height: 942.0,
                                   fit: BoxFit.cover,
@@ -752,8 +751,8 @@ class _PaginaInicialWidgetState extends State<PaginaInicialWidget>
                             ),
                             ClipRRect(
                               borderRadius: BorderRadius.circular(8.0),
-                              child: Image.asset(
-                                'assets/images/Banner_Contato_tablet.png',
+                              child: Image.network(
+                                'https://firebasestorage.googleapis.com/v0/b/studio-93-795ad.appspot.com/o/Arquivos%20apps%2FBanners%2FBanner%20Tablet%2FBanner%20Contato%20tablet.png?alt=media&token=845ace35-bcbc-49af-a4ee-34d490f1647f',
                                 width: 300.0,
                                 height: 216.0,
                                 fit: BoxFit.cover,
@@ -761,8 +760,8 @@ class _PaginaInicialWidgetState extends State<PaginaInicialWidget>
                             ),
                             ClipRRect(
                               borderRadius: BorderRadius.circular(8.0),
-                              child: Image.asset(
-                                'assets/images/Banner_assinatura_Tablet.png',
+                              child: Image.network(
+                                'https://firebasestorage.googleapis.com/v0/b/studio-93-795ad.appspot.com/o/Arquivos%20apps%2FBanners%2FBanner%20Tablet%2FBanner%20assinatura%20Tablet.png?alt=media&token=85a53993-1e43-4900-a873-331448441dda',
                                 width: 300.0,
                                 height: 174.0,
                                 fit: BoxFit.cover,
@@ -787,6 +786,7 @@ class _PaginaInicialWidgetState extends State<PaginaInicialWidget>
                                   duration: const Duration(milliseconds: 500),
                                   curve: Curves.ease,
                                 );
+                                setState(() {});
                               },
                               effect: smooth_page_indicator.ExpandingDotsEffect(
                                 expansionFactor: 3.0,
@@ -826,8 +826,8 @@ class _PaginaInicialWidgetState extends State<PaginaInicialWidget>
                           children: [
                             ClipRRect(
                               borderRadius: BorderRadius.circular(8.0),
-                              child: Image.asset(
-                                'assets/images/Banner_curso_Web.png',
+                              child: Image.network(
+                                'https://firebasestorage.googleapis.com/v0/b/studio-93-795ad.appspot.com/o/Arquivos%20apps%2FBanners%2FBanner%20Web%2FBanner%20curso%20Web.png?alt=media&token=4b262fcc-151d-4aff-ab34-ccafdab72005',
                                 width: 300.0,
                                 height: 942.0,
                                 fit: BoxFit.cover,
@@ -835,8 +835,8 @@ class _PaginaInicialWidgetState extends State<PaginaInicialWidget>
                             ),
                             ClipRRect(
                               borderRadius: BorderRadius.circular(8.0),
-                              child: Image.asset(
-                                'assets/images/Banner_Redes_sociais_Web.png',
+                              child: Image.network(
+                                'https://firebasestorage.googleapis.com/v0/b/studio-93-795ad.appspot.com/o/Arquivos%20apps%2FBanners%2FBanner%20Web%2FBanner%20Redes%20sociais%20Web.png?alt=media&token=4d32f641-6e53-4b2e-a070-fa0778c77f28',
                                 width: 300.0,
                                 height: 216.0,
                                 fit: BoxFit.cover,
@@ -844,8 +844,8 @@ class _PaginaInicialWidgetState extends State<PaginaInicialWidget>
                             ),
                             ClipRRect(
                               borderRadius: BorderRadius.circular(8.0),
-                              child: Image.asset(
-                                'assets/images/Banner_assinatura_Web.png',
+                              child: Image.network(
+                                'https://firebasestorage.googleapis.com/v0/b/studio-93-795ad.appspot.com/o/Arquivos%20apps%2FBanners%2FBanner%20Web%2FBanner%20assinatura%20Web.png?alt=media&token=6a9b40af-a611-4a5d-9e95-f808d5be0f85',
                                 width: 300.0,
                                 height: 174.0,
                                 fit: BoxFit.cover,
@@ -870,6 +870,7 @@ class _PaginaInicialWidgetState extends State<PaginaInicialWidget>
                                   duration: const Duration(milliseconds: 500),
                                   curve: Curves.ease,
                                 );
+                                setState(() {});
                               },
                               effect: smooth_page_indicator.ExpandingDotsEffect(
                                 expansionFactor: 3.0,
@@ -895,195 +896,193 @@ class _PaginaInicialWidgetState extends State<PaginaInicialWidget>
                 tabletLandscape: false,
                 desktop: false,
               ))
-                Padding(
-                  padding:
-                      const EdgeInsetsDirectional.fromSTEB(60.0, 10.0, 60.0, 0.0),
-                  child: Container(
-                    width: 570.0,
-                    height: 264.0,
-                    decoration: const BoxDecoration(
-                      color: Color(0x00FFFFFF),
+                Container(
+                  width: 311.0,
+                  height: 226.0,
+                  decoration: const BoxDecoration(
+                    color: Color(0x00FFFFFF),
+                  ),
+                  child: Visibility(
+                    visible: responsiveVisibility(
+                      context: context,
+                      tablet: false,
+                      tabletLandscape: false,
+                      desktop: false,
                     ),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Wrap(
-                          spacing: 0.0,
-                          runSpacing: 0.0,
-                          alignment: WrapAlignment.start,
-                          crossAxisAlignment: WrapCrossAlignment.start,
-                          direction: Axis.horizontal,
-                          runAlignment: WrapAlignment.start,
-                          verticalDirection: VerticalDirection.down,
-                          clipBehavior: Clip.none,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(12.0),
-                              child: FFButtonWidget(
-                                onPressed: () async {
-                                  context.pushNamed(
-                                    'Assinatura-Intro',
-                                    extra: <String, dynamic>{
-                                      kTransitionInfoKey: const TransitionInfo(
-                                        hasTransition: true,
-                                        transitionType:
-                                            PageTransitionType.rightToLeft,
-                                        duration: Duration(milliseconds: 300),
-                                      ),
-                                    },
-                                  );
-                                },
-                                text: 'ASSINATURA',
-                                icon: const Icon(
-                                  Icons.star_border,
-                                  size: 15.0,
-                                ),
-                                options: FFButtonOptions(
-                                  width: 210.0,
-                                  height: 40.0,
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      24.0, 0.0, 24.0, 0.0),
-                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  color: const Color(0xFFAB8346),
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .titleSmall
-                                      .override(
-                                        fontFamily: 'Readex Pro',
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                  elevation: 3.0,
-                                  borderSide: const BorderSide(
-                                    color: Colors.transparent,
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                              ).animateOnPageLoad(
-                                  animationsMap['buttonOnPageLoadAnimation1']!),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(12.0),
-                              child: FFButtonWidget(
-                                onPressed: () {
-                                  print('Button pressed ...');
-                                },
-                                text: 'AGENDAMENTO',
-                                icon: const Icon(
-                                  Icons.calendar_month,
-                                  size: 15.0,
-                                ),
-                                options: FFButtonOptions(
-                                  width: 210.0,
-                                  height: 40.0,
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      24.0, 0.0, 24.0, 0.0),
-                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  color: const Color(0xFFAB8346),
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .titleSmall
-                                      .override(
-                                        fontFamily: 'Readex Pro',
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                  elevation: 3.0,
-                                  borderSide: const BorderSide(
-                                    color: Colors.transparent,
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                              ).animateOnPageLoad(
-                                  animationsMap['buttonOnPageLoadAnimation2']!),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(12.0),
-                              child: FFButtonWidget(
-                                onPressed: () async {
-                                  context.pushNamed('Contato');
-                                },
-                                text: 'CONTATO',
-                                icon: const Icon(
-                                  Icons.chat_sharp,
-                                  size: 15.0,
-                                ),
-                                options: FFButtonOptions(
-                                  width: 210.0,
-                                  height: 40.0,
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      24.0, 0.0, 24.0, 0.0),
-                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  color: const Color(0xFFAB8346),
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .titleSmall
-                                      .override(
-                                        fontFamily: 'Readex Pro',
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                  elevation: 3.0,
-                                  borderSide: const BorderSide(
-                                    color: Colors.transparent,
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                              ).animateOnPageLoad(
-                                  animationsMap['buttonOnPageLoadAnimation3']!),
-                            ),
-                            Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  12.0, 10.0, 12.0, 0.0),
-                              child: FFButtonWidget(
-                                onPressed: () async {
-                                  context.pushNamed('Servicos');
-                                },
-                                text: 'SERVIÇOS',
-                                icon: const Icon(
-                                  Icons.double_arrow,
-                                  size: 15.0,
-                                ),
-                                options: FFButtonOptions(
-                                  width: 210.0,
-                                  height: 40.0,
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      24.0, 0.0, 24.0, 0.0),
-                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  color: const Color(0x00AB8346),
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .titleSmall
-                                      .override(
-                                        fontFamily: 'Readex Pro',
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        fontSize: 22.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                  elevation: 3.0,
-                                  borderSide: const BorderSide(
-                                    color: Color(0xFFAB8346),
-                                    width: 0.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                              ).animateOnPageLoad(
-                                  animationsMap['buttonOnPageLoadAnimation4']!),
-                            ),
-                          ],
+                    child: Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
+                      child: GridView(
+                        padding: EdgeInsets.zero,
+                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          crossAxisSpacing: 20.0,
+                          mainAxisSpacing: 18.0,
+                          childAspectRatio: 1.8,
                         ),
-                      ],
+                        shrinkWrap: true,
+                        scrollDirection: Axis.vertical,
+                        children: [
+                          FFButtonWidget(
+                            onPressed: () async {
+                              context.pushNamed(
+                                'Assinatura-Intro',
+                                extra: <String, dynamic>{
+                                  kTransitionInfoKey: const TransitionInfo(
+                                    hasTransition: true,
+                                    transitionType:
+                                        PageTransitionType.rightToLeft,
+                                    duration: Duration(milliseconds: 300),
+                                  ),
+                                },
+                              );
+                            },
+                            text: 'ASSINATURA',
+                            icon: const Icon(
+                              Icons.star_border,
+                              size: 15.0,
+                            ),
+                            options: FFButtonOptions(
+                              width: 18.0,
+                              height: 13.0,
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  10.0, 0.0, 10.0, 0.0),
+                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: const Color(0xFFAB8346),
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    fontSize: 10.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                              elevation: 3.0,
+                              borderSide: const BorderSide(
+                                color: Colors.transparent,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(18.0),
+                              hoverColor: const Color(0xFF7E5A2A),
+                            ),
+                          ).animateOnPageLoad(
+                              animationsMap['buttonOnPageLoadAnimation1']!),
+                          FFButtonWidget(
+                            onPressed: () async {
+                              context.pushNamed('AiGenerateImages');
+                            },
+                            text: 'GERADOR DE CORTES',
+                            icon: const Icon(
+                              Icons.image,
+                              size: 24.0,
+                            ),
+                            options: FFButtonOptions(
+                              width: 210.0,
+                              height: 35.0,
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  10.0, 0.0, 10.0, 0.0),
+                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: const Color(0xFFAB8346),
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    fontSize: 10.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                              elevation: 3.0,
+                              borderSide: const BorderSide(
+                                color: Colors.transparent,
+                                width: 2.0,
+                              ),
+                              borderRadius: BorderRadius.circular(18.0),
+                              hoverColor: const Color(0xFF7E5A2A),
+                            ),
+                          ).animateOnPageLoad(
+                              animationsMap['buttonOnPageLoadAnimation2']!),
+                          FFButtonWidget(
+                            onPressed: () async {
+                              context.pushNamed('Contato');
+                            },
+                            text: 'CONTATO',
+                            icon: const Icon(
+                              Icons.chat_sharp,
+                              size: 15.0,
+                            ),
+                            options: FFButtonOptions(
+                              width: 210.0,
+                              height: 36.0,
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  10.0, 0.0, 10.0, 0.0),
+                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: const Color(0xFFAB8346),
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    fontSize: 14.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                              elevation: 3.0,
+                              borderSide: const BorderSide(
+                                color: Colors.transparent,
+                                width: 2.0,
+                              ),
+                              borderRadius: BorderRadius.circular(18.0),
+                              hoverColor: const Color(0xFF7E5A2A),
+                            ),
+                          ).animateOnPageLoad(
+                              animationsMap['buttonOnPageLoadAnimation3']!),
+                          FFButtonWidget(
+                            onPressed: () async {
+                              context.goNamed('Servicos');
+                            },
+                            text: 'SERVIÇOS',
+                            icon: const Icon(
+                              Icons.double_arrow,
+                              size: 15.0,
+                            ),
+                            options: FFButtonOptions(
+                              width: 210.0,
+                              height: 36.0,
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  10.0, 0.0, 10.0, 0.0),
+                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: const Color(0x00AB8346),
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    fontSize: 15.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                              elevation: 3.0,
+                              borderSide: const BorderSide(
+                                color: Color(0xFFAB8346),
+                                width: 2.0,
+                              ),
+                              borderRadius: BorderRadius.circular(18.0),
+                              hoverColor: const Color(0xFF7E5A2A),
+                            ),
+                          ).animateOnPageLoad(
+                              animationsMap['buttonOnPageLoadAnimation4']!),
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -1131,8 +1130,8 @@ class _PaginaInicialWidgetState extends State<PaginaInicialWidget>
                             const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(0.0),
-                          child: Image.asset(
-                            'assets/images/Foto_1.png',
+                          child: Image.network(
+                            'https://firebasestorage.googleapis.com/v0/b/studio-93-795ad.appspot.com/o/Arquivos%20apps%2FImagens%2FFoto%201.png?alt=media&token=a1b77118-8a89-40ee-8789-ba8f2c15201a',
                             width: 226.0,
                             height: 275.0,
                             fit: BoxFit.contain,

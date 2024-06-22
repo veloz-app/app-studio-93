@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -29,41 +30,41 @@ class _LoginWidgetState extends State<LoginWidget>
       length: 2,
       initialIndex: 0,
     )..addListener(() => setState(() {}));
-    _model.textController1 ??= TextEditingController();
-    _model.textFieldFocusNode1 ??= FocusNode();
+    _model.emailEntradaTextController ??= TextEditingController();
+    _model.emailEntradaFocusNode ??= FocusNode();
 
-    _model.textController2 ??= TextEditingController();
-    _model.textFieldFocusNode2 ??= FocusNode();
+    _model.senhaEntradaTextController ??= TextEditingController();
+    _model.senhaEntradaFocusNode ??= FocusNode();
 
-    _model.textController3 ??= TextEditingController();
-    _model.textFieldFocusNode3 ??= FocusNode();
+    _model.nomeTextController ??= TextEditingController();
+    _model.nomeFocusNode ??= FocusNode();
 
-    _model.textController4 ??= TextEditingController();
-    _model.textFieldFocusNode4 ??= FocusNode();
+    _model.sobrenomeTextController ??= TextEditingController();
+    _model.sobrenomeFocusNode ??= FocusNode();
 
-    _model.textController5 ??= TextEditingController();
-    _model.textFieldFocusNode5 ??= FocusNode();
+    _model.nascimentoTextController ??= TextEditingController();
+    _model.nascimentoFocusNode ??= FocusNode();
 
-    _model.textController6 ??= TextEditingController();
-    _model.textFieldFocusNode6 ??= FocusNode();
+    _model.cpfTextController ??= TextEditingController();
+    _model.cpfFocusNode ??= FocusNode();
 
-    _model.textController7 ??= TextEditingController();
-    _model.textFieldFocusNode7 ??= FocusNode();
+    _model.telefoneTextController ??= TextEditingController();
+    _model.telefoneFocusNode ??= FocusNode();
 
-    _model.textController8 ??= TextEditingController();
-    _model.textFieldFocusNode8 ??= FocusNode();
+    _model.whatsappTextController ??= TextEditingController();
+    _model.whatsappFocusNode ??= FocusNode();
 
-    _model.textController9 ??= TextEditingController();
-    _model.textFieldFocusNode9 ??= FocusNode();
+    _model.enderecoTextController ??= TextEditingController();
+    _model.enderecoFocusNode ??= FocusNode();
 
-    _model.textController10 ??= TextEditingController();
-    _model.textFieldFocusNode10 ??= FocusNode();
+    _model.criacaoEMailTextController ??= TextEditingController();
+    _model.criacaoEMailFocusNode ??= FocusNode();
 
-    _model.textController11 ??= TextEditingController();
-    _model.textFieldFocusNode11 ??= FocusNode();
+    _model.criacaoSenhaTextController ??= TextEditingController();
+    _model.criacaoSenhaFocusNode ??= FocusNode();
 
-    _model.textController12 ??= TextEditingController();
-    _model.textFieldFocusNode12 ??= FocusNode();
+    _model.criacaoConfirmacaoSenhaTextController ??= TextEditingController();
+    _model.criacaoConfirmacaoSenhaFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -138,8 +139,8 @@ class _LoginWidgetState extends State<LoginWidget>
                                               child: ClipRRect(
                                                 borderRadius:
                                                     BorderRadius.circular(8.0),
-                                                child: Image.asset(
-                                                  'assets/images/coroa.png',
+                                                child: Image.network(
+                                                  'https://firebasestorage.googleapis.com/v0/b/studio-93-795ad.appspot.com/o/Arquivos%20apps%2FImagens%2Fcoroa.png?alt=media&token=4135ac31-8e6c-4a8c-9b8a-3d2d43fb3a41',
                                                   width: 137.0,
                                                   height: 118.0,
                                                   fit: BoxFit.contain,
@@ -190,9 +191,9 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                   0.0),
                                                       child: TextFormField(
                                                         controller: _model
-                                                            .textController1,
+                                                            .emailEntradaTextController,
                                                         focusNode: _model
-                                                            .textFieldFocusNode1,
+                                                            .emailEntradaFocusNode,
                                                         autofocus: false,
                                                         textCapitalization:
                                                             TextCapitalization
@@ -252,7 +253,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                             TextInputType
                                                                 .emailAddress,
                                                         validator: _model
-                                                            .textController1Validator
+                                                            .emailEntradaTextControllerValidator
                                                             .asValidator(
                                                                 context),
                                                       ),
@@ -283,12 +284,12 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                   0.0),
                                                       child: TextFormField(
                                                         controller: _model
-                                                            .textController2,
+                                                            .senhaEntradaTextController,
                                                         focusNode: _model
-                                                            .textFieldFocusNode2,
+                                                            .senhaEntradaFocusNode,
                                                         autofocus: false,
                                                         autofillHints: const [
-                                                          AutofillHints.email
+                                                          AutofillHints.password
                                                         ],
                                                         textCapitalization:
                                                             TextCapitalization
@@ -297,7 +298,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                             TextInputAction
                                                                 .next,
                                                         obscureText: !_model
-                                                            .passwordVisibility,
+                                                            .senhaEntradaVisibility,
                                                         decoration:
                                                             InputDecoration(
                                                           labelText: 'Senha',
@@ -371,15 +372,15 @@ class _LoginWidgetState extends State<LoginWidget>
                                                             onTap: () =>
                                                                 setState(
                                                               () => _model
-                                                                      .passwordVisibility =
+                                                                      .senhaEntradaVisibility =
                                                                   !_model
-                                                                      .passwordVisibility,
+                                                                      .senhaEntradaVisibility,
                                                             ),
                                                             focusNode: FocusNode(
                                                                 skipTraversal:
                                                                     true),
                                                             child: Icon(
-                                                              _model.passwordVisibility
+                                                              _model.senhaEntradaVisibility
                                                                   ? Icons
                                                                       .visibility_outlined
                                                                   : Icons
@@ -399,39 +400,239 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                       0.0,
                                                                 ),
                                                         validator: _model
-                                                            .textController2Validator
+                                                            .senhaEntradaTextControllerValidator
                                                             .asValidator(
                                                                 context),
                                                       ),
                                                     ),
                                                   ),
                                                 ),
+                                                Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceEvenly,
+                                                  children: [
+                                                    Container(
+                                                      width: 134.0,
+                                                      height: 26.0,
+                                                      decoration: BoxDecoration(
+                                                        color:
+                                                            const Color(0x00FFFFFF),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                      ),
+                                                      child: InkWell(
+                                                        splashColor:
+                                                            Colors.transparent,
+                                                        focusColor:
+                                                            Colors.transparent,
+                                                        hoverColor:
+                                                            Colors.transparent,
+                                                        highlightColor:
+                                                            Colors.transparent,
+                                                        onTap: () async {
+                                                          GoRouter.of(context)
+                                                              .prepareAuthEvent();
+                                                          final user =
+                                                              await authManager
+                                                                  .signInWithGoogle(
+                                                                      context);
+                                                          if (user == null) {
+                                                            return;
+                                                          }
+
+                                                          context.goNamedAuth(
+                                                              'Pagina-inicial',
+                                                              context.mounted);
+                                                        },
+                                                        child: Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            ClipOval(
+                                                              child: Container(
+                                                                width: 21.0,
+                                                                height: 21.0,
+                                                                decoration:
+                                                                    const BoxDecoration(
+                                                                  color: Color(
+                                                                      0x00FFFFFF),
+                                                                  shape: BoxShape
+                                                                      .circle,
+                                                                ),
+                                                                child:
+                                                                    ClipRRect(
+                                                                  borderRadius:
+                                                                      const BorderRadius
+                                                                          .only(
+                                                                    bottomLeft:
+                                                                        Radius.circular(
+                                                                            0.0),
+                                                                    bottomRight:
+                                                                        Radius.circular(
+                                                                            0.0),
+                                                                    topLeft: Radius
+                                                                        .circular(
+                                                                            0.0),
+                                                                    topRight: Radius
+                                                                        .circular(
+                                                                            0.0),
+                                                                  ),
+                                                                  child: Image
+                                                                      .asset(
+                                                                    'assets/images/google-37.png',
+                                                                    width:
+                                                                        299.0,
+                                                                    height:
+                                                                        200.0,
+                                                                    fit: BoxFit
+                                                                        .contain,
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                            Padding(
+                                                              padding:
+                                                                  const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          7.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Text(
+                                                                'Entrar com google',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Readex Pro',
+                                                                      fontSize:
+                                                                          9.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    Container(
+                                                      width: 136.0,
+                                                      height: 26.0,
+                                                      decoration: BoxDecoration(
+                                                        color:
+                                                            const Color(0x00FFFFFF),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                      ),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          ClipOval(
+                                                            child: Container(
+                                                              width: 21.0,
+                                                              height: 21.0,
+                                                              decoration:
+                                                                  const BoxDecoration(
+                                                                color: Color(
+                                                                    0x00FFFFFF),
+                                                                shape: BoxShape
+                                                                    .circle,
+                                                              ),
+                                                              child: ClipRRect(
+                                                                borderRadius:
+                                                                    const BorderRadius
+                                                                        .only(
+                                                                  bottomLeft: Radius
+                                                                      .circular(
+                                                                          0.0),
+                                                                  bottomRight: Radius
+                                                                      .circular(
+                                                                          0.0),
+                                                                  topLeft: Radius
+                                                                      .circular(
+                                                                          0.0),
+                                                                  topRight: Radius
+                                                                      .circular(
+                                                                          0.0),
+                                                                ),
+                                                                child:
+                                                                    Image.asset(
+                                                                  'assets/images/Whatsapp.png',
+                                                                  width: 299.0,
+                                                                  height: 200.0,
+                                                                  fit: BoxFit
+                                                                      .contain,
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Padding(
+                                                            padding:
+                                                                const EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        7.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            child: Text(
+                                                              'Entrar com Whatsapp',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .titleMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Readex Pro',
+                                                                    fontSize:
+                                                                        9.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
                                                 Padding(
                                                   padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                          0.0, 10.0, 0.0, 0.0),
+                                                          0.0, 15.0, 0.0, 0.0),
                                                   child: FFButtonWidget(
                                                     onPressed: () async {
-                                                      context.pushNamed(
-                                                        'Pagina-inicial',
-                                                        extra: <String,
-                                                            dynamic>{
-                                                          kTransitionInfoKey:
-                                                              const TransitionInfo(
-                                                            hasTransition: true,
-                                                            transitionType:
-                                                                PageTransitionType
-                                                                    .rightToLeft,
-                                                            duration: Duration(
-                                                                milliseconds:
-                                                                    600),
-                                                          ),
-                                                        },
+                                                      GoRouter.of(context)
+                                                          .prepareAuthEvent();
+
+                                                      final user =
+                                                          await authManager
+                                                              .signInWithEmail(
+                                                        context,
+                                                        _model
+                                                            .emailEntradaTextController
+                                                            .text,
+                                                        _model
+                                                            .senhaEntradaTextController
+                                                            .text,
                                                       );
+                                                      if (user == null) {
+                                                        return;
+                                                      }
+
+                                                      context.goNamedAuth(
+                                                          'Pagina-inicial',
+                                                          context.mounted);
                                                     },
                                                     text: 'Entrar',
                                                     options: FFButtonOptions(
-                                                      width: 160.0,
+                                                      width: 173.0,
                                                       height: 40.0,
                                                       padding:
                                                           const EdgeInsetsDirectional
@@ -548,19 +749,19 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                   0.0),
                                                       child: TextFormField(
                                                         controller: _model
-                                                            .textController3,
+                                                            .nomeTextController,
                                                         focusNode: _model
-                                                            .textFieldFocusNode3,
+                                                            .nomeFocusNode,
                                                         onChanged: (_) =>
                                                             EasyDebounce
                                                                 .debounce(
-                                                          '_model.textController3',
+                                                          '_model.nomeTextController',
                                                           const Duration(
                                                               milliseconds:
                                                                   2000),
                                                           () => setState(() {}),
                                                         ),
-                                                        autofocus: true,
+                                                        autofocus: false,
                                                         textCapitalization:
                                                             TextCapitalization
                                                                 .none,
@@ -648,14 +849,14 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                         8.0),
                                                           ),
                                                           suffixIcon: _model
-                                                                  .textController3!
+                                                                  .nomeTextController!
                                                                   .text
                                                                   .isNotEmpty
                                                               ? InkWell(
                                                                   onTap:
                                                                       () async {
                                                                     _model
-                                                                        .textController3
+                                                                        .nomeTextController
                                                                         ?.clear();
                                                                     setState(
                                                                         () {});
@@ -680,7 +881,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                         keyboardType:
                                                             TextInputType.name,
                                                         validator: _model
-                                                            .textController3Validator
+                                                            .nomeTextControllerValidator
                                                             .asValidator(
                                                                 context),
                                                       ),
@@ -711,10 +912,10 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                   0.0),
                                                       child: TextFormField(
                                                         controller: _model
-                                                            .textController4,
+                                                            .sobrenomeTextController,
                                                         focusNode: _model
-                                                            .textFieldFocusNode4,
-                                                        autofocus: true,
+                                                            .sobrenomeFocusNode,
+                                                        autofocus: false,
                                                         textInputAction:
                                                             TextInputAction
                                                                 .next,
@@ -813,7 +1014,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                         keyboardType:
                                                             TextInputType.name,
                                                         validator: _model
-                                                            .textController4Validator
+                                                            .sobrenomeTextControllerValidator
                                                             .asValidator(
                                                                 context),
                                                       ),
@@ -858,10 +1059,10 @@ class _LoginWidgetState extends State<LoginWidget>
                                                             child:
                                                                 TextFormField(
                                                               controller: _model
-                                                                  .textController5,
+                                                                  .nascimentoTextController,
                                                               focusNode: _model
-                                                                  .textFieldFocusNode5,
-                                                              autofocus: true,
+                                                                  .nascimentoFocusNode,
+                                                              autofocus: false,
                                                               textInputAction:
                                                                   TextInputAction
                                                                       .next,
@@ -959,12 +1160,12 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                   TextInputType
                                                                       .datetime,
                                                               validator: _model
-                                                                  .textController5Validator
+                                                                  .nascimentoTextControllerValidator
                                                                   .asValidator(
                                                                       context),
                                                               inputFormatters: [
                                                                 _model
-                                                                    .textFieldMask5
+                                                                    .nascimentoMask
                                                               ],
                                                             ),
                                                           ),
@@ -997,10 +1198,10 @@ class _LoginWidgetState extends State<LoginWidget>
                                                             child:
                                                                 TextFormField(
                                                               controller: _model
-                                                                  .textController6,
+                                                                  .cpfTextController,
                                                               focusNode: _model
-                                                                  .textFieldFocusNode6,
-                                                              autofocus: true,
+                                                                  .cpfFocusNode,
+                                                              autofocus: false,
                                                               textInputAction:
                                                                   TextInputAction
                                                                       .next,
@@ -1098,12 +1299,11 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                   TextInputType
                                                                       .number,
                                                               validator: _model
-                                                                  .textController6Validator
+                                                                  .cpfTextControllerValidator
                                                                   .asValidator(
                                                                       context),
                                                               inputFormatters: [
-                                                                _model
-                                                                    .textFieldMask6
+                                                                _model.cpfMask
                                                               ],
                                                             ),
                                                           ),
@@ -1145,10 +1345,10 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                       0.0),
                                                           child: TextFormField(
                                                             controller: _model
-                                                                .textController7,
+                                                                .telefoneTextController,
                                                             focusNode: _model
-                                                                .textFieldFocusNode7,
-                                                            autofocus: true,
+                                                                .telefoneFocusNode,
+                                                            autofocus: false,
                                                             textInputAction:
                                                                 TextInputAction
                                                                     .next,
@@ -1251,12 +1451,12 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                 TextInputType
                                                                     .phone,
                                                             validator: _model
-                                                                .textController7Validator
+                                                                .telefoneTextControllerValidator
                                                                 .asValidator(
                                                                     context),
                                                             inputFormatters: [
                                                               _model
-                                                                  .textFieldMask7
+                                                                  .telefoneMask
                                                             ],
                                                           ),
                                                         ),
@@ -1288,10 +1488,10 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                       0.0),
                                                           child: TextFormField(
                                                             controller: _model
-                                                                .textController8,
+                                                                .whatsappTextController,
                                                             focusNode: _model
-                                                                .textFieldFocusNode8,
-                                                            autofocus: true,
+                                                                .whatsappFocusNode,
+                                                            autofocus: false,
                                                             textInputAction:
                                                                 TextInputAction
                                                                     .next,
@@ -1299,7 +1499,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                             decoration:
                                                                 InputDecoration(
                                                               labelText:
-                                                                  'Celular',
+                                                                  'Whatsapp',
                                                               labelStyle:
                                                                   FlutterFlowTheme.of(
                                                                           context)
@@ -1390,12 +1590,12 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                 TextInputType
                                                                     .phone,
                                                             validator: _model
-                                                                .textController8Validator
+                                                                .whatsappTextControllerValidator
                                                                 .asValidator(
                                                                     context),
                                                             inputFormatters: [
                                                               _model
-                                                                  .textFieldMask8
+                                                                  .whatsappMask
                                                             ],
                                                           ),
                                                         ),
@@ -1427,10 +1627,10 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                   0.0),
                                                       child: TextFormField(
                                                         controller: _model
-                                                            .textController9,
+                                                            .enderecoTextController,
                                                         focusNode: _model
-                                                            .textFieldFocusNode9,
-                                                        autofocus: true,
+                                                            .enderecoFocusNode,
+                                                        autofocus: false,
                                                         textInputAction:
                                                             TextInputAction
                                                                 .next,
@@ -1530,7 +1730,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                             TextInputType
                                                                 .streetAddress,
                                                         validator: _model
-                                                            .textController9Validator
+                                                            .enderecoTextControllerValidator
                                                             .asValidator(
                                                                 context),
                                                       ),
@@ -1561,10 +1761,13 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                   0.0),
                                                       child: TextFormField(
                                                         controller: _model
-                                                            .textController10,
+                                                            .criacaoEMailTextController,
                                                         focusNode: _model
-                                                            .textFieldFocusNode10,
-                                                        autofocus: true,
+                                                            .criacaoEMailFocusNode,
+                                                        autofocus: false,
+                                                        textCapitalization:
+                                                            TextCapitalization
+                                                                .none,
                                                         textInputAction:
                                                             TextInputAction
                                                                 .next,
@@ -1663,7 +1866,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                             TextInputType
                                                                 .emailAddress,
                                                         validator: _model
-                                                            .textController10Validator
+                                                            .criacaoEMailTextControllerValidator
                                                             .asValidator(
                                                                 context),
                                                       ),
@@ -1703,14 +1906,18 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                       0.0),
                                                           child: TextFormField(
                                                             controller: _model
-                                                                .textController11,
+                                                                .criacaoSenhaTextController,
                                                             focusNode: _model
-                                                                .textFieldFocusNode11,
-                                                            autofocus: true,
+                                                                .criacaoSenhaFocusNode,
+                                                            autofocus: false,
+                                                            textCapitalization:
+                                                                TextCapitalization
+                                                                    .none,
                                                             textInputAction:
                                                                 TextInputAction
                                                                     .next,
-                                                            obscureText: false,
+                                                            obscureText: !_model
+                                                                .criacaoSenhaVisibility,
                                                             decoration:
                                                                 InputDecoration(
                                                               labelText:
@@ -1791,6 +1998,27 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                         .circular(
                                                                             8.0),
                                                               ),
+                                                              suffixIcon:
+                                                                  InkWell(
+                                                                onTap: () =>
+                                                                    setState(
+                                                                  () => _model
+                                                                          .criacaoSenhaVisibility =
+                                                                      !_model
+                                                                          .criacaoSenhaVisibility,
+                                                                ),
+                                                                focusNode: FocusNode(
+                                                                    skipTraversal:
+                                                                        true),
+                                                                child: Icon(
+                                                                  _model.criacaoSenhaVisibility
+                                                                      ? Icons
+                                                                          .visibility_outlined
+                                                                      : Icons
+                                                                          .visibility_off_outlined,
+                                                                  size: 22,
+                                                                ),
+                                                              ),
                                                             ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
@@ -1805,7 +2033,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                 TextInputType
                                                                     .visiblePassword,
                                                             validator: _model
-                                                                .textController11Validator
+                                                                .criacaoSenhaTextControllerValidator
                                                                 .asValidator(
                                                                     context),
                                                           ),
@@ -1838,14 +2066,15 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                       0.0),
                                                           child: TextFormField(
                                                             controller: _model
-                                                                .textController12,
+                                                                .criacaoConfirmacaoSenhaTextController,
                                                             focusNode: _model
-                                                                .textFieldFocusNode12,
-                                                            autofocus: true,
+                                                                .criacaoConfirmacaoSenhaFocusNode,
+                                                            autofocus: false,
                                                             textInputAction:
                                                                 TextInputAction
                                                                     .done,
-                                                            obscureText: false,
+                                                            obscureText: !_model
+                                                                .criacaoConfirmacaoSenhaVisibility,
                                                             decoration:
                                                                 InputDecoration(
                                                               labelText:
@@ -1928,6 +2157,27 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                         .circular(
                                                                             8.0),
                                                               ),
+                                                              suffixIcon:
+                                                                  InkWell(
+                                                                onTap: () =>
+                                                                    setState(
+                                                                  () => _model
+                                                                          .criacaoConfirmacaoSenhaVisibility =
+                                                                      !_model
+                                                                          .criacaoConfirmacaoSenhaVisibility,
+                                                                ),
+                                                                focusNode: FocusNode(
+                                                                    skipTraversal:
+                                                                        true),
+                                                                child: Icon(
+                                                                  _model.criacaoConfirmacaoSenhaVisibility
+                                                                      ? Icons
+                                                                          .visibility_outlined
+                                                                      : Icons
+                                                                          .visibility_off_outlined,
+                                                                  size: 22,
+                                                                ),
+                                                              ),
                                                             ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
@@ -1944,7 +2194,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                 TextInputType
                                                                     .visiblePassword,
                                                             validator: _model
-                                                                .textController12Validator
+                                                                .criacaoConfirmacaoSenhaTextControllerValidator
                                                                 .asValidator(
                                                                     context),
                                                           ),
@@ -1961,15 +2211,43 @@ class _LoginWidgetState extends State<LoginWidget>
                                                       0.0, 10.0, 0.0, 0.0),
                                               child: FFButtonWidget(
                                                 onPressed: () async {
-                                                  setState(() {
-                                                    _model.tabBarController!
-                                                        .animateTo(
-                                                      0,
-                                                      duration: const Duration(
-                                                          milliseconds: 300),
-                                                      curve: Curves.ease,
+                                                  GoRouter.of(context)
+                                                      .prepareAuthEvent();
+                                                  if (_model
+                                                          .criacaoSenhaTextController
+                                                          .text !=
+                                                      _model
+                                                          .criacaoConfirmacaoSenhaTextController
+                                                          .text) {
+                                                    ScaffoldMessenger.of(
+                                                            context)
+                                                        .showSnackBar(
+                                                      const SnackBar(
+                                                        content: Text(
+                                                          'Passwords don\'t match!',
+                                                        ),
+                                                      ),
                                                     );
-                                                  });
+                                                    return;
+                                                  }
+
+                                                  final user = await authManager
+                                                      .createAccountWithEmail(
+                                                    context,
+                                                    _model
+                                                        .criacaoEMailTextController
+                                                        .text,
+                                                    _model
+                                                        .criacaoSenhaTextController
+                                                        .text,
+                                                  );
+                                                  if (user == null) {
+                                                    return;
+                                                  }
+
+                                                  context.goNamedAuth(
+                                                      'Pagina-inicial',
+                                                      context.mounted);
                                                 },
                                                 text: 'Criar',
                                                 options: FFButtonOptions(

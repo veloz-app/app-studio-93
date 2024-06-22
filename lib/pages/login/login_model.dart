@@ -12,103 +12,108 @@ class LoginModel extends FlutterFlowModel<LoginWidget> {
   int get tabBarCurrentIndex =>
       tabBarController != null ? tabBarController!.index : 0;
 
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode1;
-  TextEditingController? textController1;
-  String? Function(BuildContext, String?)? textController1Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode2;
-  TextEditingController? textController2;
-  late bool passwordVisibility;
-  String? Function(BuildContext, String?)? textController2Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode3;
-  TextEditingController? textController3;
-  String? Function(BuildContext, String?)? textController3Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode4;
-  TextEditingController? textController4;
-  String? Function(BuildContext, String?)? textController4Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode5;
-  TextEditingController? textController5;
-  final textFieldMask5 = MaskTextInputFormatter(mask: '##/##/####');
-  String? Function(BuildContext, String?)? textController5Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode6;
-  TextEditingController? textController6;
-  final textFieldMask6 = MaskTextInputFormatter(mask: '###.###.###-##');
-  String? Function(BuildContext, String?)? textController6Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode7;
-  TextEditingController? textController7;
-  final textFieldMask7 = MaskTextInputFormatter(mask: '## ####-####');
-  String? Function(BuildContext, String?)? textController7Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode8;
-  TextEditingController? textController8;
-  final textFieldMask8 = MaskTextInputFormatter(mask: '## #####-####');
-  String? Function(BuildContext, String?)? textController8Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode9;
-  TextEditingController? textController9;
-  String? Function(BuildContext, String?)? textController9Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode10;
-  TextEditingController? textController10;
-  String? Function(BuildContext, String?)? textController10Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode11;
-  TextEditingController? textController11;
-  String? Function(BuildContext, String?)? textController11Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode12;
-  TextEditingController? textController12;
-  String? Function(BuildContext, String?)? textController12Validator;
+  // State field(s) for Email-entrada widget.
+  FocusNode? emailEntradaFocusNode;
+  TextEditingController? emailEntradaTextController;
+  String? Function(BuildContext, String?)? emailEntradaTextControllerValidator;
+  // State field(s) for SenhaEntrada widget.
+  FocusNode? senhaEntradaFocusNode;
+  TextEditingController? senhaEntradaTextController;
+  late bool senhaEntradaVisibility;
+  String? Function(BuildContext, String?)? senhaEntradaTextControllerValidator;
+  // State field(s) for Nome widget.
+  FocusNode? nomeFocusNode;
+  TextEditingController? nomeTextController;
+  String? Function(BuildContext, String?)? nomeTextControllerValidator;
+  // State field(s) for Sobrenome widget.
+  FocusNode? sobrenomeFocusNode;
+  TextEditingController? sobrenomeTextController;
+  String? Function(BuildContext, String?)? sobrenomeTextControllerValidator;
+  // State field(s) for Nascimento widget.
+  FocusNode? nascimentoFocusNode;
+  TextEditingController? nascimentoTextController;
+  final nascimentoMask = MaskTextInputFormatter(mask: '##/##/####');
+  String? Function(BuildContext, String?)? nascimentoTextControllerValidator;
+  // State field(s) for CPF widget.
+  FocusNode? cpfFocusNode;
+  TextEditingController? cpfTextController;
+  final cpfMask = MaskTextInputFormatter(mask: '###.###.###-##');
+  String? Function(BuildContext, String?)? cpfTextControllerValidator;
+  // State field(s) for Telefone widget.
+  FocusNode? telefoneFocusNode;
+  TextEditingController? telefoneTextController;
+  final telefoneMask = MaskTextInputFormatter(mask: '## ####-####');
+  String? Function(BuildContext, String?)? telefoneTextControllerValidator;
+  // State field(s) for Whatsapp widget.
+  FocusNode? whatsappFocusNode;
+  TextEditingController? whatsappTextController;
+  final whatsappMask = MaskTextInputFormatter(mask: '## #####-####');
+  String? Function(BuildContext, String?)? whatsappTextControllerValidator;
+  // State field(s) for Endereco widget.
+  FocusNode? enderecoFocusNode;
+  TextEditingController? enderecoTextController;
+  String? Function(BuildContext, String?)? enderecoTextControllerValidator;
+  // State field(s) for CriacaoE-mail widget.
+  FocusNode? criacaoEMailFocusNode;
+  TextEditingController? criacaoEMailTextController;
+  String? Function(BuildContext, String?)? criacaoEMailTextControllerValidator;
+  // State field(s) for CriacaoSenha widget.
+  FocusNode? criacaoSenhaFocusNode;
+  TextEditingController? criacaoSenhaTextController;
+  late bool criacaoSenhaVisibility;
+  String? Function(BuildContext, String?)? criacaoSenhaTextControllerValidator;
+  // State field(s) for CriacaoConfirmacaoSenha widget.
+  FocusNode? criacaoConfirmacaoSenhaFocusNode;
+  TextEditingController? criacaoConfirmacaoSenhaTextController;
+  late bool criacaoConfirmacaoSenhaVisibility;
+  String? Function(BuildContext, String?)?
+      criacaoConfirmacaoSenhaTextControllerValidator;
 
   @override
   void initState(BuildContext context) {
-    passwordVisibility = false;
+    senhaEntradaVisibility = false;
+    criacaoSenhaVisibility = false;
+    criacaoConfirmacaoSenhaVisibility = false;
   }
 
   @override
   void dispose() {
     unfocusNode.dispose();
     tabBarController?.dispose();
-    textFieldFocusNode1?.dispose();
-    textController1?.dispose();
+    emailEntradaFocusNode?.dispose();
+    emailEntradaTextController?.dispose();
 
-    textFieldFocusNode2?.dispose();
-    textController2?.dispose();
+    senhaEntradaFocusNode?.dispose();
+    senhaEntradaTextController?.dispose();
 
-    textFieldFocusNode3?.dispose();
-    textController3?.dispose();
+    nomeFocusNode?.dispose();
+    nomeTextController?.dispose();
 
-    textFieldFocusNode4?.dispose();
-    textController4?.dispose();
+    sobrenomeFocusNode?.dispose();
+    sobrenomeTextController?.dispose();
 
-    textFieldFocusNode5?.dispose();
-    textController5?.dispose();
+    nascimentoFocusNode?.dispose();
+    nascimentoTextController?.dispose();
 
-    textFieldFocusNode6?.dispose();
-    textController6?.dispose();
+    cpfFocusNode?.dispose();
+    cpfTextController?.dispose();
 
-    textFieldFocusNode7?.dispose();
-    textController7?.dispose();
+    telefoneFocusNode?.dispose();
+    telefoneTextController?.dispose();
 
-    textFieldFocusNode8?.dispose();
-    textController8?.dispose();
+    whatsappFocusNode?.dispose();
+    whatsappTextController?.dispose();
 
-    textFieldFocusNode9?.dispose();
-    textController9?.dispose();
+    enderecoFocusNode?.dispose();
+    enderecoTextController?.dispose();
 
-    textFieldFocusNode10?.dispose();
-    textController10?.dispose();
+    criacaoEMailFocusNode?.dispose();
+    criacaoEMailTextController?.dispose();
 
-    textFieldFocusNode11?.dispose();
-    textController11?.dispose();
+    criacaoSenhaFocusNode?.dispose();
+    criacaoSenhaTextController?.dispose();
 
-    textFieldFocusNode12?.dispose();
-    textController12?.dispose();
+    criacaoConfirmacaoSenhaFocusNode?.dispose();
+    criacaoConfirmacaoSenhaTextController?.dispose();
   }
 }

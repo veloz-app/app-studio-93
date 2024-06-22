@@ -43,7 +43,7 @@ class _AssinaturaWidgetState extends State<AssinaturaWidget> {
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: Container(
           width: 2009.0,
-          height: 1290.0,
+          height: 1430.0,
           decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [FlutterFlowTheme.of(context).primaryText, Colors.black],
@@ -59,7 +59,7 @@ class _AssinaturaWidgetState extends State<AssinaturaWidget> {
             children: [
               Container(
                 width: 409.0,
-                height: 78.0,
+                height: 95.0,
                 decoration: const BoxDecoration(
                   color: Color(0x00FFFFFF),
                 ),
@@ -92,7 +92,7 @@ class _AssinaturaWidgetState extends State<AssinaturaWidget> {
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Readex Pro',
                               color: const Color(0xFFAB8346),
-                              fontSize: 22.0,
+                              fontSize: 21.0,
                               letterSpacing: 0.0,
                               lineHeight: 0.0,
                             ),

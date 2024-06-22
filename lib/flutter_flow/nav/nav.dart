@@ -136,9 +136,48 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Contato',
           path: '/contato',
           builder: (context, params) => const ContatoWidget(),
+        ),
+        FFRoute(
+          name: 'CorteDeCabelo',
+          path: '/corteDeCabelo',
+          builder: (context, params) => const CorteDeCabeloWidget(),
+        ),
+        FFRoute(
+          name: 'CorteDeBarba',
+          path: '/corteDeBarba',
+          builder: (context, params) => const CorteDeBarbaWidget(),
+        ),
+        FFRoute(
+          name: 'CortedeSobrancelha',
+          path: '/cortedeSobrancelha',
+          builder: (context, params) => const CortedeSobrancelhaWidget(),
+        ),
+        FFRoute(
+          name: 'CorteDeCabeloeBarba',
+          path: '/corteDeCabeloeBarba',
+          builder: (context, params) => const CorteDeCabeloeBarbaWidget(),
+        ),
+        FFRoute(
+          name: 'CortedeCabelo-Barba-Sobrancelha',
+          path: '/cortedeCabeloBarbaSobrancelha',
+          builder: (context, params) => const CortedeCabeloBarbaSobrancelhaWidget(),
+        ),
+        FFRoute(
+          name: 'AgendamentoData',
+          path: '/agendamentoData',
+          builder: (context, params) => const AgendamentoDataWidget(),
+        ),
+        FFRoute(
+          name: 'Confirmacao',
+          path: '/confirmacao',
+          builder: (context, params) => const ConfirmacaoWidget(),
+        ),
+        FFRoute(
+          name: 'AiGenerateImages',
+          path: '/AiGenerateImages',
+          builder: (context, params) => const AiGenerateImagesWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
-      observers: [routeObserver],
     );
 
 extension NavParamExtensions on Map<String, String?> {
@@ -395,4 +434,14 @@ class RootPageContext {
         value: RootPageContext(true, errorRoute),
         child: child,
       );
+}
+
+extension GoRouterLocationExtension on GoRouter {
+  String getCurrentLocation() {
+    final RouteMatch lastMatch = routerDelegate.currentConfiguration.last;
+    final RouteMatchList matchList = lastMatch is ImperativeRouteMatch
+        ? lastMatch.matches
+        : routerDelegate.currentConfiguration;
+    return matchList.uri.toString();
+  }
 }

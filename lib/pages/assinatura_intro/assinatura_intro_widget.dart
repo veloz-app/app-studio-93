@@ -29,7 +29,7 @@ class _AssinaturaIntroWidgetState extends State<AssinaturaIntroWidget>
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      await Future.delayed(const Duration(milliseconds: 2000));
+      await Future.delayed(const Duration(milliseconds: 1000));
 
       context.pushNamed(
         'Assinatura',
@@ -94,8 +94,8 @@ class _AssinaturaIntroWidgetState extends State<AssinaturaIntroWidget>
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(8.0),
-                child: Image.asset(
-                  'assets/images/coroa.png',
+                child: Image.network(
+                  'https://firebasestorage.googleapis.com/v0/b/studio-93-795ad.appspot.com/o/Arquivos%20apps%2FImagens%2Fcoroa.png?alt=media&token=4135ac31-8e6c-4a8c-9b8a-3d2d43fb3a41',
                   width: 164.0,
                   height: 156.0,
                   fit: BoxFit.fitHeight,
