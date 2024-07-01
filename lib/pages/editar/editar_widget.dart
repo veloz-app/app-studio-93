@@ -868,7 +868,7 @@ class _EditarWidgetState extends State<EditarWidget> {
                   await authManager.signOut();
                   GoRouter.of(context).clearRedirectLocation();
 
-                  context.goNamedAuth('Intro', context.mounted);
+                  context.goNamedAuth('Login', context.mounted);
                 },
                 child: Text(
                   'Desconectar conta',

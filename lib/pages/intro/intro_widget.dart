@@ -29,15 +29,9 @@ class _IntroWidgetState extends State<IntroWidget>
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      if (RootPageContext.isInactiveRootPage(context)) {
-        return;
-      }
       await Future.delayed(const Duration(milliseconds: 1500));
-      if (MediaQuery.sizeOf(context).width <= 391.0 ? true : true) {
-        context.pushNamed('Login');
-      } else {
-        context.pushNamed('Pagina-inicial');
-      }
+
+      context.pushNamed('Login');
     });
 
     animationsMap.addAll({

@@ -105,7 +105,7 @@ class _AssinaturaWidgetState extends State<AssinaturaWidget> {
                 alignment: const AlignmentDirectional(0.0, 0.0),
                 child: AnimatedContainer(
                   duration: const Duration(milliseconds: 100),
-                  curve: Curves.easeInOut,
+                  curve: Curves.easeIn,
                   width: 321.0,
                   height: 479.0,
                   decoration: const BoxDecoration(

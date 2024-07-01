@@ -64,7 +64,7 @@ class _CortedeSobrancelhaWidgetState extends State<CortedeSobrancelhaWidget> {
                   padding: const EdgeInsets.all(14.0),
                   child: Container(
                     width: 305.0,
-                    height: 588.0,
+                    height: 616.0,
                     decoration: const BoxDecoration(
                       color: Color(0x00FFFFFF),
                     ),
@@ -188,7 +188,7 @@ class _CortedeSobrancelhaWidgetState extends State<CortedeSobrancelhaWidget> {
                           alignment: const AlignmentDirectional(0.0, 0.0),
                           child: Container(
                             width: 475.0,
-                            height: 67.0,
+                            height: 83.0,
                             decoration: const BoxDecoration(
                               color: Color(0x00FFFFFF),
                             ),

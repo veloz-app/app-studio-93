@@ -87,7 +87,7 @@ class _LoginWidgetState extends State<LoginWidget>
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: AnimatedContainer(
           duration: const Duration(milliseconds: 100),
-          curve: Curves.easeInOut,
+          curve: Curves.easeIn,
           width: double.infinity,
           height: double.infinity,
           decoration: BoxDecoration(
@@ -204,7 +204,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                         obscureText: false,
                                                         decoration:
                                                             InputDecoration(
-                                                          isDense: true,
+                                                          isDense: false,
                                                           labelText: 'E-mail\n',
                                                           labelStyle:
                                                               FlutterFlowTheme.of(
@@ -414,40 +414,42 @@ class _LoginWidgetState extends State<LoginWidget>
                                                       MainAxisAlignment
                                                           .spaceEvenly,
                                                   children: [
-                                                    Container(
-                                                      width: 134.0,
-                                                      height: 26.0,
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            const Color(0x00FFFFFF),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(8.0),
-                                                      ),
-                                                      child: InkWell(
-                                                        splashColor:
-                                                            Colors.transparent,
-                                                        focusColor:
-                                                            Colors.transparent,
-                                                        hoverColor:
-                                                            Colors.transparent,
-                                                        highlightColor:
-                                                            Colors.transparent,
-                                                        onTap: () async {
-                                                          GoRouter.of(context)
-                                                              .prepareAuthEvent();
-                                                          final user =
-                                                              await authManager
-                                                                  .signInWithGoogle(
-                                                                      context);
-                                                          if (user == null) {
-                                                            return;
-                                                          }
+                                                    InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        GoRouter.of(context)
+                                                            .prepareAuthEvent();
+                                                        final user =
+                                                            await authManager
+                                                                .signInWithGoogle(
+                                                                    context);
+                                                        if (user == null) {
+                                                          return;
+                                                        }
 
-                                                          context.goNamedAuth(
-                                                              'Pagina-inicial',
-                                                              context.mounted);
-                                                        },
+                                                        context.goNamedAuth(
+                                                            'Pagina-inicial',
+                                                            context.mounted);
+                                                      },
+                                                      child: Container(
+                                                        width: 134.0,
+                                                        height: 26.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color:
+                                                              const Color(0x00FFFFFF),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      8.0),
+                                                        ),
                                                         child: Row(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
@@ -607,29 +609,37 @@ class _LoginWidgetState extends State<LoginWidget>
                                                       .fromSTEB(
                                                           0.0, 15.0, 0.0, 0.0),
                                                   child: FFButtonWidget(
-                                                    onPressed: () async {
-                                                      GoRouter.of(context)
-                                                          .prepareAuthEvent();
+                                                    onPressed: !((_model.emailEntradaTextController
+                                                                        .text !=
+                                                                    '') &&
+                                                            (_model.senhaEntradaTextController
+                                                                        .text !=
+                                                                    ''))
+                                                        ? null
+                                                        : () async {
+                                                            GoRouter.of(context)
+                                                                .prepareAuthEvent();
 
-                                                      final user =
-                                                          await authManager
-                                                              .signInWithEmail(
-                                                        context,
-                                                        _model
-                                                            .emailEntradaTextController
-                                                            .text,
-                                                        _model
-                                                            .senhaEntradaTextController
-                                                            .text,
-                                                      );
-                                                      if (user == null) {
-                                                        return;
-                                                      }
+                                                            final user =
+                                                                await authManager
+                                                                    .signInWithEmail(
+                                                              context,
+                                                              _model
+                                                                  .emailEntradaTextController
+                                                                  .text,
+                                                              _model
+                                                                  .senhaEntradaTextController
+                                                                  .text,
+                                                            );
+                                                            if (user == null) {
+                                                              return;
+                                                            }
 
-                                                      context.goNamedAuth(
-                                                          'Pagina-inicial',
-                                                          context.mounted);
-                                                    },
+                                                            context.goNamedAuth(
+                                                                'Pagina-inicial',
+                                                                context
+                                                                    .mounted);
+                                                          },
                                                     text: 'Entrar',
                                                     options: FFButtonOptions(
                                                       width: 173.0,
@@ -677,21 +687,55 @@ class _LoginWidgetState extends State<LoginWidget>
                                                   padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 25.0, 0.0, 0.0),
-                                                  child: Text(
-                                                    'Esqueci a senha',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .titleMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Readex Pro',
-                                                          color:
-                                                              const Color(0xFF949494),
-                                                          fontSize: 15.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w300,
-                                                        ),
+                                                  child: InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      if (_model
+                                                          .emailEntradaTextController
+                                                          .text
+                                                          .isEmpty) {
+                                                        ScaffoldMessenger.of(
+                                                                context)
+                                                            .showSnackBar(
+                                                          const SnackBar(
+                                                            content: Text(
+                                                              'Email required!',
+                                                            ),
+                                                          ),
+                                                        );
+                                                        return;
+                                                      }
+                                                      await authManager
+                                                          .resetPassword(
+                                                        email: _model
+                                                            .emailEntradaTextController
+                                                            .text,
+                                                        context: context,
+                                                      );
+                                                    },
+                                                    child: Text(
+                                                      'Esqueci a senha',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .titleMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Readex Pro',
+                                                            color: const Color(
+                                                                0xFF949494),
+                                                            fontSize: 15.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w300,
+                                                          ),
+                                                    ),
                                                   ),
                                                 ),
                                               ],
@@ -2245,9 +2289,8 @@ class _LoginWidgetState extends State<LoginWidget>
                                                     return;
                                                   }
 
-                                                  context.goNamedAuth(
-                                                      'Pagina-inicial',
-                                                      context.mounted);
+                                                  context.pushNamedAuth(
+                                                      'Login', context.mounted);
                                                 },
                                                 text: 'Criar',
                                                 options: FFButtonOptions(

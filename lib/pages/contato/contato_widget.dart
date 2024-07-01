@@ -1525,9 +1525,8 @@ class _ContatoWidgetState extends State<ContatoWidget> {
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 15.0),
                               child: FFButtonWidget(
-                                onPressed: () async {
-                                  await launchURL(
-                                      'https://mail.google.com/mail/u/0/#inbox');
+                                onPressed: () {
+                                  print('Button pressed ...');
                                 },
                                 text: 'E-mail',
                                 icon: const Icon(

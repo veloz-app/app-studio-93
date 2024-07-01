@@ -103,8 +103,10 @@ class UsersRecord extends FirestoreRecord {
     _phoneNumber = snapshotData['phone_number'] as String?;
   }
 
-  static CollectionReference get collection =>
-      FirebaseFirestore.instance.collection('users');
+  static CollectionReference get collection => FirebaseFirestore.instanceFor(
+          app: Firebase.app(),
+          databaseURL: '/users/vCsqYLRFn2SQQKa9rC67Cp77brA3')
+      .collection('users');
 
   static Stream<UsersRecord> getDocument(DocumentReference ref) =>
       ref.snapshots().map((s) => UsersRecord.fromSnapshot(s));
