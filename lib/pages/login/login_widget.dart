@@ -29,7 +29,7 @@ class _LoginWidgetState extends State<LoginWidget>
       vsync: this,
       length: 2,
       initialIndex: 0,
-    )..addListener(() => setState(() {}));
+    )..addListener(() => safeSetState(() {}));
     _model.emailEntradaTextController ??= TextEditingController();
     _model.emailEntradaFocusNode ??= FocusNode();
 
@@ -66,7 +66,7 @@ class _LoginWidgetState extends State<LoginWidget>
     _model.criacaoConfirmacaoSenhaTextController ??= TextEditingController();
     _model.criacaoConfirmacaoSenhaFocusNode ??= FocusNode();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -79,9 +79,7 @@ class _LoginWidgetState extends State<LoginWidget>
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -370,7 +368,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                           ),
                                                           suffixIcon: InkWell(
                                                             onTap: () =>
-                                                                setState(
+                                                                safeSetState(
                                                               () => _model
                                                                       .senhaEntradaVisibility =
                                                                   !_model
@@ -609,37 +607,29 @@ class _LoginWidgetState extends State<LoginWidget>
                                                       .fromSTEB(
                                                           0.0, 15.0, 0.0, 0.0),
                                                   child: FFButtonWidget(
-                                                    onPressed: !((_model.emailEntradaTextController
-                                                                        .text !=
-                                                                    '') &&
-                                                            (_model.senhaEntradaTextController
-                                                                        .text !=
-                                                                    ''))
-                                                        ? null
-                                                        : () async {
-                                                            GoRouter.of(context)
-                                                                .prepareAuthEvent();
+                                                    onPressed: () async {
+                                                      GoRouter.of(context)
+                                                          .prepareAuthEvent();
 
-                                                            final user =
-                                                                await authManager
-                                                                    .signInWithEmail(
-                                                              context,
-                                                              _model
-                                                                  .emailEntradaTextController
-                                                                  .text,
-                                                              _model
-                                                                  .senhaEntradaTextController
-                                                                  .text,
-                                                            );
-                                                            if (user == null) {
-                                                              return;
-                                                            }
+                                                      final user =
+                                                          await authManager
+                                                              .signInWithEmail(
+                                                        context,
+                                                        _model
+                                                            .emailEntradaTextController
+                                                            .text,
+                                                        _model
+                                                            .senhaEntradaTextController
+                                                            .text,
+                                                      );
+                                                      if (user == null) {
+                                                        return;
+                                                      }
 
-                                                            context.goNamedAuth(
-                                                                'Pagina-inicial',
-                                                                context
-                                                                    .mounted);
-                                                          },
+                                                      context.goNamedAuth(
+                                                          'Pagina-inicial',
+                                                          context.mounted);
+                                                    },
                                                     text: 'Entrar',
                                                     options: FFButtonOptions(
                                                       width: 173.0,
@@ -803,7 +793,8 @@ class _LoginWidgetState extends State<LoginWidget>
                                                           const Duration(
                                                               milliseconds:
                                                                   2000),
-                                                          () => setState(() {}),
+                                                          () => safeSetState(
+                                                              () {}),
                                                         ),
                                                         autofocus: false,
                                                         textCapitalization:
@@ -902,7 +893,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                     _model
                                                                         .nomeTextController
                                                                         ?.clear();
-                                                                    setState(
+                                                                    safeSetState(
                                                                         () {});
                                                                   },
                                                                   child: const Icon(
@@ -2045,7 +2036,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                               suffixIcon:
                                                                   InkWell(
                                                                 onTap: () =>
-                                                                    setState(
+                                                                    safeSetState(
                                                                   () => _model
                                                                           .criacaoSenhaVisibility =
                                                                       !_model
@@ -2204,7 +2195,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                               suffixIcon:
                                                                   InkWell(
                                                                 onTap: () =>
-                                                                    setState(
+                                                                    safeSetState(
                                                                   () => _model
                                                                           .criacaoConfirmacaoSenhaVisibility =
                                                                       !_model

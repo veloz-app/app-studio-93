@@ -22,7 +22,7 @@ class _ConfirmacaoWidgetState extends State<ConfirmacaoWidget> {
     super.initState();
     _model = createModel(context, () => ConfirmacaoModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -53,13 +53,13 @@ class _ConfirmacaoWidgetState extends State<ConfirmacaoWidget> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 100.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 60.0),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(8.0),
                 child: Image.network(
                   'https://firebasestorage.googleapis.com/v0/b/studio-93-795ad.appspot.com/o/Arquivos%20apps%2FImagens%2FLogotipo.png?alt=media&token=0d3ff9e0-2b92-4e61-9ab5-1b24a01c6c4e',
-                  width: 198.0,
-                  height: 196.0,
+                  width: 179.0,
+                  height: 170.0,
                   fit: BoxFit.contain,
                 ),
               ),
@@ -87,6 +87,7 @@ class _ConfirmacaoWidgetState extends State<ConfirmacaoWidget> {
               alignment: const AlignmentDirectional(0.0, 0.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
                     'Obrigado, sua solitação de agendamento foi enviada.',
@@ -116,7 +117,7 @@ class _ConfirmacaoWidgetState extends State<ConfirmacaoWidget> {
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 60.0, 0.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
               child: FFButtonWidget(
                 onPressed: () async {
                   context.pushNamed('Pagina-inicial');

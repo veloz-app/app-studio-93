@@ -162,7 +162,7 @@ DocumentReference _deserializeDocumentReference(
   }
   return FirebaseFirestore.instanceFor(
           app: Firebase.app(),
-          databaseURL: '/users/vCsqYLRFn2SQQKa9rC67Cp77brA3')
+          databaseId: '/users/vCsqYLRFn2SQQKa9rC67Cp77brA3')
       .doc(path);
 }
 
@@ -178,6 +178,7 @@ enum ParamType {
   FFPlace,
   FFUploadedFile,
   JSON,
+
   Document,
   DocumentReference,
 }

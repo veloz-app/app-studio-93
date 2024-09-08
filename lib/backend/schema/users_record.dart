@@ -86,6 +86,11 @@ class UsersRecord extends FirestoreRecord {
   String get phoneNumber => _phoneNumber ?? '';
   bool hasPhoneNumber() => _phoneNumber != null;
 
+  // "IsAluno" field.
+  bool? _isAluno;
+  bool get isAluno => _isAluno ?? false;
+  bool hasIsAluno() => _isAluno != null;
+
   void _initializeFields() {
     _owner = snapshotData['owner'] as DocumentReference?;
     _usersAssigned = getDataList(snapshotData['users_assigned']);
@@ -101,11 +106,12 @@ class UsersRecord extends FirestoreRecord {
     _uid = snapshotData['uid'] as String?;
     _createdTime = snapshotData['created_time'] as DateTime?;
     _phoneNumber = snapshotData['phone_number'] as String?;
+    _isAluno = snapshotData['IsAluno'] as bool?;
   }
 
   static CollectionReference get collection => FirebaseFirestore.instanceFor(
           app: Firebase.app(),
-          databaseURL: '/users/vCsqYLRFn2SQQKa9rC67Cp77brA3')
+          databaseId: '/users/vCsqYLRFn2SQQKa9rC67Cp77brA3')
       .collection('users');
 
   static Stream<UsersRecord> getDocument(DocumentReference ref) =>
@@ -152,6 +158,7 @@ Map<String, dynamic> createUsersRecordData({
   String? uid,
   DateTime? createdTime,
   String? phoneNumber,
+  bool? isAluno,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -168,6 +175,7 @@ Map<String, dynamic> createUsersRecordData({
       'uid': uid,
       'created_time': createdTime,
       'phone_number': phoneNumber,
+      'IsAluno': isAluno,
     }.withoutNulls,
   );
 
@@ -193,7 +201,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.photoUrl == e2?.photoUrl &&
         e1?.uid == e2?.uid &&
         e1?.createdTime == e2?.createdTime &&
-        e1?.phoneNumber == e2?.phoneNumber;
+        e1?.phoneNumber == e2?.phoneNumber &&
+        e1?.isAluno == e2?.isAluno;
   }
 
   @override
@@ -211,7 +220,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.photoUrl,
         e?.uid,
         e?.createdTime,
-        e?.phoneNumber
+        e?.phoneNumber,
+        e?.isAluno
       ]);
 
   @override

@@ -23,7 +23,7 @@ class _CortedeSobrancelhaWidgetState extends State<CortedeSobrancelhaWidget> {
     super.initState();
     _model = createModel(context, () => CortedeSobrancelhaModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -36,9 +36,7 @@ class _CortedeSobrancelhaWidgetState extends State<CortedeSobrancelhaWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -64,12 +62,13 @@ class _CortedeSobrancelhaWidgetState extends State<CortedeSobrancelhaWidget> {
                   padding: const EdgeInsets.all(14.0),
                   child: Container(
                     width: 305.0,
-                    height: 616.0,
+                    height: 651.0,
                     decoration: const BoxDecoration(
                       color: Color(0x00FFFFFF),
                     ),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         ClipRRect(

@@ -23,7 +23,7 @@ class _ContatoWidgetState extends State<ContatoWidget> {
     super.initState();
     _model = createModel(context, () => ContatoModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -36,9 +36,7 @@ class _ContatoWidgetState extends State<ContatoWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -420,6 +418,7 @@ class _ContatoWidgetState extends State<ContatoWidget> {
                                 text: 'Whatsapp',
                                 icon: const FaIcon(
                                   FontAwesomeIcons.whatsapp,
+                                  size: 15.0,
                                 ),
                                 options: FFButtonOptions(
                                   width: 225.0,
@@ -1130,6 +1129,7 @@ class _ContatoWidgetState extends State<ContatoWidget> {
                                   text: 'Whatsapp',
                                   icon: const FaIcon(
                                     FontAwesomeIcons.whatsapp,
+                                    size: 15.0,
                                   ),
                                   options: FFButtonOptions(
                                     width: 225.0,
@@ -1569,6 +1569,7 @@ class _ContatoWidgetState extends State<ContatoWidget> {
                                 text: 'Whatsapp',
                                 icon: const FaIcon(
                                   FontAwesomeIcons.whatsapp,
+                                  size: 15.0,
                                 ),
                                 options: FFButtonOptions(
                                   width: 225.0,

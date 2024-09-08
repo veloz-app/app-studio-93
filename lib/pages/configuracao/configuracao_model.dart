@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 class ConfiguracaoModel extends FlutterFlowModel<ConfiguracaoWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // State field(s) for Checkbox widget.
   bool? checkboxValue1;
   // State field(s) for Checkbox widget.
@@ -17,7 +16,5 @@ class ConfiguracaoModel extends FlutterFlowModel<ConfiguracaoWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

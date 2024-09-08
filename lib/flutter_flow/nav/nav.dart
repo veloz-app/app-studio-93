@@ -80,103 +80,100 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           path: '/',
           builder: (context, _) =>
               appStateNotifier.loggedIn ? const NavBarPage() : const LoginWidget(),
-          routes: [
-            FFRoute(
-              name: 'Intro',
-              path: 'intro',
-              builder: (context, params) => const IntroWidget(),
-            ),
-            FFRoute(
-              name: 'Pagina-inicial',
-              path: 'paginaInicial',
-              builder: (context, params) => params.isEmpty
-                  ? const NavBarPage(initialPage: 'Pagina-inicial')
-                  : const PaginaInicialWidget(),
-            ),
-            FFRoute(
-              name: 'Assinatura-Intro',
-              path: 'assinaturaIntro',
-              builder: (context, params) => const AssinaturaIntroWidget(),
-            ),
-            FFRoute(
-              name: 'Assinatura',
-              path: 'assinatura',
-              builder: (context, params) => const AssinaturaWidget(),
-            ),
-            FFRoute(
-              name: 'Login',
-              path: 'login',
-              builder: (context, params) => const LoginWidget(),
-            ),
-            FFRoute(
-              name: 'Configuracao',
-              path: 'Configuracao',
-              builder: (context, params) => params.isEmpty
-                  ? const NavBarPage(initialPage: 'Configuracao')
-                  : const ConfiguracaoWidget(),
-            ),
-            FFRoute(
-              name: 'Editar',
-              path: 'editar',
-              builder: (context, params) => params.isEmpty
-                  ? const NavBarPage(initialPage: 'Editar')
-                  : const EditarWidget(),
-            ),
-            FFRoute(
-              name: 'Servicos',
-              path: 'servicos',
-              builder: (context, params) => params.isEmpty
-                  ? const NavBarPage(initialPage: 'Servicos')
-                  : const ServicosWidget(),
-            ),
-            FFRoute(
-              name: 'Contato',
-              path: 'contato',
-              builder: (context, params) => const ContatoWidget(),
-            ),
-            FFRoute(
-              name: 'CorteDeCabelo',
-              path: 'corteDeCabelo',
-              builder: (context, params) => const CorteDeCabeloWidget(),
-            ),
-            FFRoute(
-              name: 'CorteDeBarba',
-              path: 'corteDeBarba',
-              builder: (context, params) => const CorteDeBarbaWidget(),
-            ),
-            FFRoute(
-              name: 'CortedeSobrancelha',
-              path: 'cortedeSobrancelha',
-              builder: (context, params) => const CortedeSobrancelhaWidget(),
-            ),
-            FFRoute(
-              name: 'CorteDeCabeloeBarba',
-              path: 'corteDeCabeloeBarba',
-              builder: (context, params) => const CorteDeCabeloeBarbaWidget(),
-            ),
-            FFRoute(
-              name: 'CortedeCabelo-Barba-Sobrancelha',
-              path: 'cortedeCabeloBarbaSobrancelha',
-              builder: (context, params) =>
-                  const CortedeCabeloBarbaSobrancelhaWidget(),
-            ),
-            FFRoute(
-              name: 'AgendamentoData',
-              path: 'agendamentoData',
-              builder: (context, params) => const AgendamentoDataWidget(),
-            ),
-            FFRoute(
-              name: 'Confirmacao',
-              path: 'confirmacao',
-              builder: (context, params) => const ConfirmacaoWidget(),
-            ),
-            FFRoute(
-              name: 'AiGenerateImages',
-              path: 'AiGenerateImages',
-              builder: (context, params) => const AiGenerateImagesWidget(),
-            )
-          ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
+        FFRoute(
+          name: 'Intro',
+          path: '/intro',
+          builder: (context, params) => const IntroWidget(),
+        ),
+        FFRoute(
+          name: 'Pagina-inicial',
+          path: '/paginaInicial',
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'Pagina-inicial')
+              : const PaginaInicialWidget(),
+        ),
+        FFRoute(
+          name: 'Assinatura-Intro',
+          path: '/assinaturaIntro',
+          builder: (context, params) => const AssinaturaIntroWidget(),
+        ),
+        FFRoute(
+          name: 'Assinatura',
+          path: '/assinatura',
+          builder: (context, params) => const AssinaturaWidget(),
+        ),
+        FFRoute(
+          name: 'Login',
+          path: '/login',
+          builder: (context, params) => const LoginWidget(),
+        ),
+        FFRoute(
+          name: 'Configuracao',
+          path: '/Configuracao',
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'Configuracao')
+              : const ConfiguracaoWidget(),
+        ),
+        FFRoute(
+          name: 'Editar',
+          path: '/editar',
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'Editar')
+              : const EditarWidget(),
+        ),
+        FFRoute(
+          name: 'Servicos',
+          path: '/servicos',
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'Servicos')
+              : const ServicosWidget(),
+        ),
+        FFRoute(
+          name: 'Contato',
+          path: '/contato',
+          builder: (context, params) => const ContatoWidget(),
+        ),
+        FFRoute(
+          name: 'CorteDeCabelo',
+          path: '/corteDeCabelo',
+          builder: (context, params) => const CorteDeCabeloWidget(),
+        ),
+        FFRoute(
+          name: 'CorteDeBarba',
+          path: '/corteDeBarba',
+          builder: (context, params) => const CorteDeBarbaWidget(),
+        ),
+        FFRoute(
+          name: 'CortedeSobrancelha',
+          path: '/cortedeSobrancelha',
+          builder: (context, params) => const CortedeSobrancelhaWidget(),
+        ),
+        FFRoute(
+          name: 'CorteDeCabeloeBarba',
+          path: '/corteDeCabeloeBarba',
+          builder: (context, params) => const CorteDeCabeloeBarbaWidget(),
+        ),
+        FFRoute(
+          name: 'CortedeCabelo-Barba-Sobrancelha',
+          path: '/cortedeCabeloBarbaSobrancelha',
+          builder: (context, params) => const CortedeCabeloBarbaSobrancelhaWidget(),
+        ),
+        FFRoute(
+          name: 'AgendamentoData',
+          path: '/agendamentoData',
+          builder: (context, params) => const AgendamentoDataWidget(),
+        ),
+        FFRoute(
+          name: 'Confirmacao',
+          path: '/confirmacao',
+          builder: (context, params) => const ConfirmacaoWidget(),
+        ),
+        FFRoute(
+          name: 'AiGenerateImages',
+          path: '/AiGenerateImages',
+          builder: (context, params) => const AiGenerateImagesWidget(),
+        )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
 

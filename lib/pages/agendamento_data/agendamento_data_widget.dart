@@ -23,7 +23,7 @@ class _AgendamentoDataWidgetState extends State<AgendamentoDataWidget> {
     super.initState();
     _model = createModel(context, () => AgendamentoDataModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -57,14 +57,17 @@ class _AgendamentoDataWidgetState extends State<AgendamentoDataWidget> {
               alignment: const AlignmentDirectional(0.0, -1.0),
               child: Container(
                 width: 462.0,
-                height: 117.0,
+                height: 160.0,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).secondaryBackground,
-                  image: DecorationImage(
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(8.0),
+                  child: Image.network(
+                    'https://firebasestorage.googleapis.com/v0/b/studio-93-795ad.appspot.com/o/Arquivos%20apps%2FBanners%2FBanner%20Mobile%2FBanner%20agendamento%20Mobile%20462x200.png?alt=media&token=8b584a7f-0ed0-442c-a739-be6d6d385bc7',
+                    width: 200.0,
+                    height: 200.0,
                     fit: BoxFit.cover,
-                    image: Image.network(
-                      'https://firebasestorage.googleapis.com/v0/b/studio-93-795ad.appspot.com/o/Arquivos%20apps%2FBanners%2FBanner%20Mobile%2FBanner%20agendamento%20Mobile%20462x200.png?alt=media&token=8b584a7f-0ed0-442c-a739-be6d6d385bc7',
-                    ).image,
                   ),
                 ),
               ),
@@ -74,10 +77,10 @@ class _AgendamentoDataWidgetState extends State<AgendamentoDataWidget> {
               child: FlutterFlowCalendar(
                 color: const Color(0xFFAB8346),
                 iconColor: FlutterFlowTheme.of(context).secondaryText,
-                weekFormat: true,
+                weekFormat: false,
                 weekStartsMonday: true,
                 initialDate: getCurrentTimestamp,
-                rowHeight: 50.0,
+                rowHeight: 43.0,
                 onChange: (DateTimeRange? newSelectedDate) async {
                   if (_model.calendarSelectedDay == newSelectedDate) {
                     return;
@@ -86,23 +89,23 @@ class _AgendamentoDataWidgetState extends State<AgendamentoDataWidget> {
                   _model.iData = dateTimeFromSecondsSinceEpoch(
                       _model.calendarSelectedDay!.start.secondsSinceEpoch +
                           25200);
-                  setState(() {});
+                  safeSetState(() {});
                   // Resetar
                   _model.listaHoras = [];
                   _model.contador = 9;
-                  setState(() {});
+                  safeSetState(() {});
                   _model.addToListaHoras(_model.iData!);
-                  setState(() {});
+                  safeSetState(() {});
                   while (_model.contador! <= 20) {
                     // Atualizar condição IData
                     _model.iData = dateTimeFromSecondsSinceEpoch(
                         _model.iData!.secondsSinceEpoch + 3600);
                     _model.contador = _model.contador! + 1;
-                    setState(() {});
+                    safeSetState(() {});
                     _model.addToListaHoras(_model.iData!);
-                    setState(() {});
+                    safeSetState(() {});
                   }
-                  setState(() {});
+                  safeSetState(() {});
                 },
                 titleStyle: FlutterFlowTheme.of(context).titleMedium.override(
                       fontFamily: 'Readex Pro',
@@ -151,6 +154,7 @@ class _AgendamentoDataWidgetState extends State<AgendamentoDataWidget> {
                         child: Builder(
                           builder: (context) {
                             final itensGV = _model.listaHoras.toList();
+
                             return InkWell(
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,
@@ -185,7 +189,7 @@ class _AgendamentoDataWidgetState extends State<AgendamentoDataWidget> {
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
                                       _model.dataSelecionada = itensGVItem;
-                                      setState(() {});
+                                      safeSetState(() {});
                                     },
                                     child: Container(
                                       width: 64.0,
@@ -201,7 +205,7 @@ class _AgendamentoDataWidgetState extends State<AgendamentoDataWidget> {
                                             const AlignmentDirectional(0.0, 0.0),
                                         child: Text(
                                           dateTimeFormat(
-                                            'Hm',
+                                            "Hm",
                                             itensGVItem,
                                             locale: FFLocalizations.of(context)
                                                 .languageCode,
@@ -238,7 +242,7 @@ class _AgendamentoDataWidgetState extends State<AgendamentoDataWidget> {
                   children: [
                     TextSpan(
                       text: dateTimeFormat(
-                        'd/M H:mm',
+                        "d/M H:mm",
                         _model.dataSelecionada,
                         locale: FFLocalizations.of(context).languageCode,
                       ),

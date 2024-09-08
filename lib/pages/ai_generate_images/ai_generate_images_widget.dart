@@ -25,7 +25,7 @@ class _AiGenerateImagesWidgetState extends State<AiGenerateImagesWidget> {
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -38,9 +38,7 @@ class _AiGenerateImagesWidgetState extends State<AiGenerateImagesWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -64,7 +62,7 @@ class _AiGenerateImagesWidgetState extends State<AiGenerateImagesWidget> {
                 padding: const EdgeInsets.all(35.0),
                 child: Container(
                   width: 258.0,
-                  height: 716.0,
+                  height: 792.0,
                   decoration: const BoxDecoration(
                     color: Color(0x00FFFFFF),
                   ),
@@ -74,7 +72,7 @@ class _AiGenerateImagesWidgetState extends State<AiGenerateImagesWidget> {
                     children: [
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 25.0),
                         child: Text(
                           'Escreva um texto e gere um corte de cabelo',
                           textAlign: TextAlign.center,
@@ -90,7 +88,7 @@ class _AiGenerateImagesWidgetState extends State<AiGenerateImagesWidget> {
                             const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 30.0),
                         child: Container(
                           width: 271.0,
-                          height: 79.0,
+                          height: 90.0,
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(4.0),

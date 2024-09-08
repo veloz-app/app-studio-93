@@ -108,7 +108,7 @@ extension LatLngExtension on GeoPoint {
 }
 
 DocumentReference toRef(String ref) => FirebaseFirestore.instanceFor(
-        app: Firebase.app(), databaseURL: '/users/vCsqYLRFn2SQQKa9rC67Cp77brA3')
+        app: Firebase.app(), databaseId: '/users/vCsqYLRFn2SQQKa9rC67Cp77brA3')
     .doc(ref);
 
 T? safeGet<T>(T Function() func, [Function(dynamic)? reportError]) {

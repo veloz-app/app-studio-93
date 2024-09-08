@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 class PaginaInicialModel extends FlutterFlowModel<PaginaInicialWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   InstantTimer? Tempo;
   // State field(s) for PageView-Mobile widget.
   PageController? pageViewMobileController;
@@ -38,7 +37,6 @@ class PaginaInicialModel extends FlutterFlowModel<PaginaInicialWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     Tempo?.cancel();
   }
 }

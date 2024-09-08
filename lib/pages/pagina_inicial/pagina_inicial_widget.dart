@@ -238,7 +238,7 @@ class _PaginaInicialWidgetState extends State<PaginaInicialWidget>
       ),
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -253,9 +253,7 @@ class _PaginaInicialWidgetState extends State<PaginaInicialWidget>
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -699,7 +697,7 @@ class _PaginaInicialWidgetState extends State<PaginaInicialWidget>
                                 duration: const Duration(milliseconds: 500),
                                 curve: Curves.ease,
                               );
-                              setState(() {});
+                              safeSetState(() {});
                             },
                             effect: smooth_page_indicator.ExpandingDotsEffect(
                               expansionFactor: 3.0,
@@ -786,7 +784,7 @@ class _PaginaInicialWidgetState extends State<PaginaInicialWidget>
                                   duration: const Duration(milliseconds: 500),
                                   curve: Curves.ease,
                                 );
-                                setState(() {});
+                                safeSetState(() {});
                               },
                               effect: smooth_page_indicator.ExpandingDotsEffect(
                                 expansionFactor: 3.0,
@@ -870,7 +868,7 @@ class _PaginaInicialWidgetState extends State<PaginaInicialWidget>
                                   duration: const Duration(milliseconds: 500),
                                   curve: Curves.ease,
                                 );
-                                setState(() {});
+                                safeSetState(() {});
                               },
                               effect: smooth_page_indicator.ExpandingDotsEffect(
                                 expansionFactor: 3.0,

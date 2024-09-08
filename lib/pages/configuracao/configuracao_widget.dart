@@ -22,7 +22,7 @@ class _ConfiguracaoWidgetState extends State<ConfiguracaoWidget> {
     super.initState();
     _model = createModel(context, () => ConfiguracaoModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -35,9 +35,7 @@ class _ConfiguracaoWidgetState extends State<ConfiguracaoWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -143,7 +141,7 @@ class _ConfiguracaoWidgetState extends State<ConfiguracaoWidget> {
                                 child: Checkbox(
                                   value: _model.checkboxValue1 ??= true,
                                   onChanged: (newValue) async {
-                                    setState(() =>
+                                    safeSetState(() =>
                                         _model.checkboxValue1 = newValue!);
                                   },
                                   side: BorderSide(
@@ -199,7 +197,7 @@ class _ConfiguracaoWidgetState extends State<ConfiguracaoWidget> {
                                 child: Checkbox(
                                   value: _model.checkboxValue2 ??= true,
                                   onChanged: (newValue) async {
-                                    setState(() =>
+                                    safeSetState(() =>
                                         _model.checkboxValue2 = newValue!);
                                   },
                                   side: BorderSide(
@@ -255,7 +253,7 @@ class _ConfiguracaoWidgetState extends State<ConfiguracaoWidget> {
                                 child: Checkbox(
                                   value: _model.checkboxValue3 ??= true,
                                   onChanged: (newValue) async {
-                                    setState(() =>
+                                    safeSetState(() =>
                                         _model.checkboxValue3 = newValue!);
                                   },
                                   side: BorderSide(
